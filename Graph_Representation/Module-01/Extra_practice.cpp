@@ -13,5 +13,24 @@ int main()
         }
     }
 
+    // for diagonal:
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            if (i == j)
+            {
+                adj_mat[i][j] = 1;
+            }
+        }
+    }
+
+    while (E--)
+    {
+        int a, b;
+        cin >> a >> b;
+        adj_mat[a][b] = 1;
+        adj_mat[b][a] = 1; // only for undirected
+    }
     return 0;
 }
