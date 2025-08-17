@@ -30,9 +30,10 @@ int main()
         int a, b;
         cin >> a >> b;
         adj_mat[a][b] = 1;
-        adj_mat[b][a] = 1;
+        adj_mat[b][a] = 1; // only for undirected
     }
 
+    // print: 
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
