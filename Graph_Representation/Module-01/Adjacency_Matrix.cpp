@@ -13,7 +13,18 @@ int main()
         }
     }
 
-    
+    // for diagonal:
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            if (i == j)
+            {
+                adj_mat[i][j] = 1;
+            }
+        }
+    }
+
     while (E--)
     {
         int a, b;
@@ -30,7 +41,6 @@ int main()
         }
         cout << endl;
     }
-
 
     return 0;
 }
