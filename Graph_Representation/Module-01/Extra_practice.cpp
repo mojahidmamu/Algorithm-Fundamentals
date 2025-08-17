@@ -32,5 +32,15 @@ int main()
         adj_mat[a][b] = 1;
         adj_mat[b][a] = 1; // only for undirected
     }
+
+    // print:
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            cout << adj_mat[i][j] << " ";
+        }
+        cout << endl;
+    }
     return 0;
 }
