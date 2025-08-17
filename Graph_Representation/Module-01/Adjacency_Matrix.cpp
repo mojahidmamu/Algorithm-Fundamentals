@@ -13,6 +13,15 @@ int main()
         }
     }
 
+    
+    while (E--)
+    {
+        int a, b;
+        cin >> a >> b;
+        adj_mat[a][b] = 1;
+        adj_mat[b][a] = 1;
+    }
+
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
@@ -22,11 +31,6 @@ int main()
         cout << endl;
     }
 
-    while (E--)
-    {
-        int a, b;
-        cin >> a >> b;
-    }
 
     return 0;
 }
