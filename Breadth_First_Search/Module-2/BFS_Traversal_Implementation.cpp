@@ -7,6 +7,7 @@ void bfs(int source_code)
 {
     queue<int> q;
     q.push(source_code);
+    vis[source_code] = true;
 
     while (!q.empty())
     {
@@ -17,7 +18,11 @@ void bfs(int source_code)
 
         for (int child : adj_list[parent])
         {
-            q.push(child);
+            if (vis[child] == false)
+            {
+                q.push(child);
+                vis[child] = true;
+            }
         }
     }
 }
