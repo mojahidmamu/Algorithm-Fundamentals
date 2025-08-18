@@ -17,7 +17,7 @@ void bfs(int source_code)
 
         for (int child : adj_list[parent])
         {
-            cout << child << " ";
+            q.push(child);
         }
     }
 }
@@ -34,6 +34,7 @@ int main()
         adj_list[a].push_back(b);
         adj_list[b].push_back(a); // for undirected
     }
+    memset(vis, false, sizeof(vis));
     bfs(0);
     return 0;
 }
