@@ -1,10 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
+vector<int> adj_list[1005]; //  global vector:
+bool vis[1005];
+
+void bfs(int source_code)
+{
+    queue<int> q;
+    q.push(source_code);
+
+    while (!q.empty())
+    {
+        int parent = q.front();
+        q.pop();
+
+        cout << parent << " ";
+
+        for (int child : adj_list[parent])
+        {
+            cout << child << " ";
+        }
+    }
+}
+
 int main()
 {
     int N, E;
     cin >> N >> E;
-    vector<int> adj_list[N]; // array of vector
 
     while (E--)
     {
@@ -13,5 +34,6 @@ int main()
         adj_list[a].push_back(b);
         adj_list[b].push_back(a); // for undirected
     }
+    bfs(0);
     return 0;
 }
