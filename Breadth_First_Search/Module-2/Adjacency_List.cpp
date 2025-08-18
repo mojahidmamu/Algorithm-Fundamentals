@@ -4,10 +4,23 @@ int main()
 {
     int N, E;
     cin >> N >> E;
+    vector<int> adj_list[N]; // array of vector
     while (E--)
     {
         int a, b;
         cin >> a >> b;
+        adj_list[a].push_back(b);
+        adj_list[b].push_back(a); // for undirected
+    }
+
+    for (int i = 0; i < N; i++)
+    {
+        cout << i << " -> ";
+        for (int x : adj_list[i])
+        {
+            cout << x << " ";
+        }
+        cout << endl;
     }
 
     return 0;
