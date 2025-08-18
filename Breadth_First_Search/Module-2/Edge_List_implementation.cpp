@@ -4,24 +4,18 @@ int main()
 {
     int N, E;
     cin >> N >> E;
-    vector<int> adj_list[N]; // array of vector
+    vector<pair<int, int>> edge_list;
     while (E--)
     {
         int a, b;
         cin >> a >> b;
-        adj_list[a].push_back(b);
-        adj_list[b].push_back(a); // for undirected
+        edge_list.push_back({a, b});
     }
 
-    for (int i = 0; i < N; i++)
+    for (pair<int,int> x : edge_list)
     {
-        cout << i << " -> ";
-        for (int x : adj_list[i])
-        {
-            cout << x << " ";
-        }
-        cout << endl;
+        cout << x.first << " " << x.second << endl;
     }
-
+   
     return 0;
 }
