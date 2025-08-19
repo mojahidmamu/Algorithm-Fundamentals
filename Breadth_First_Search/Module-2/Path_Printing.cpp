@@ -3,6 +3,7 @@ using namespace std;
 vector<int> adj_list[1005]; //  global vector:
 bool vis[1005];
 int level[1005];
+int parent[1005];
 
 void bfs(int source_code)
 {
@@ -10,21 +11,23 @@ void bfs(int source_code)
     q.push(source_code);
     vis[source_code] = true;
     level[source_code] = 0;
+    parent[source_code] = -1;
 
     while (!q.empty())
     {
-        int parent = q.front();
+        int par = q.front();
         q.pop();
 
-        // cout << parent << " ";
+        // cout < << " ";
 
-        for (int child : adj_list[parent])
+        for (int child : adj_list[par])
         {
             if (vis[child] == false)
             {
                 q.push(child);
                 vis[child] = true;
-                level[child] = level[parent] + 1;
+                level[child] = level[par] + 1;
+                parent[child] = par;
             }
         }
     }
@@ -45,14 +48,15 @@ int main()
     }
     memset(vis, false, sizeof(vis));
     memset(level, -1, sizeof(level));
+    memset(parent, -1, sizeof(parent));
     int source_code, dst;
     cin >> source_code >> dst;
     bfs(source_code);
 
-    // for (int i = 0; i < N; i++)
-    // {
-    //     cout << i << " -> " << level[i] << endl;
-    // }
+    for (int i = 0; i < N; i++)
+    {
+        cout << i << " -> " << level[i] << endl;
+    }
 
     cout << level[dst] << endl;
     return 0;
