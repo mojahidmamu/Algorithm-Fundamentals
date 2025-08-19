@@ -40,6 +40,18 @@ int main()
         adj_list[b].push_back(a); // for undirected
     }
     memset(vis, false, sizeof(vis));
-    bfs(0);
+    int source_code, dst;
+    cin >> source_code >> dst;
+    bfs(source_code);
+
+    if (vis[dst])
+    {
+        cout << "Yes" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
+
     return 0;
 }
