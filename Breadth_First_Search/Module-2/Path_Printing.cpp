@@ -53,11 +53,18 @@ int main()
     cin >> source_code >> dst;
     bfs(source_code);
 
-    for (int i = 0; i < N; i++)
+    int node = dst;
+    while (node != -1)
     {
-        cout << i << " -> " << level[i] << endl;
+        cout << node << " ";
+        node = parent[node];
     }
+    
 
-    cout << level[dst] << endl;
+    // for (int i = 0; i < N; i++)
+    // {
+    //     cout << i << " -> " << parent[i] << endl;
+    // }
+    // cout << level[dst] << endl;
     return 0;
 }
