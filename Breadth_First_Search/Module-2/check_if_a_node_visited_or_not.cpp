@@ -3,6 +3,30 @@ using namespace std;
 vector<int> adj_lst[1005];
 bool vis[1005];
 
+void bfs(int source_code)
+{
+    queue<int> q;
+    q.push(source_code);
+    vis[source_code] = true;
+
+    while (!q.empty())
+    {
+        int parent = q.front();
+        q.pop();
+
+        cout << parent << " ";
+
+        for (int child : adj_list[parent])
+        {
+            if (vis[child] == false)
+            {
+                q.push(child);
+                vis[child] = true;
+            }
+        }
+    }
+}
+
 int main()
 {
     int N, E;
