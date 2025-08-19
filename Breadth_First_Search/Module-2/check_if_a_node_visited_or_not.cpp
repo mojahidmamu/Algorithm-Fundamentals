@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-vector<int> adj_lst[1005];
+vector<int> adj_list[1005]; //  global vector:
 bool vis[1005];
 
 void bfs(int source_code)
