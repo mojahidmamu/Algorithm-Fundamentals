@@ -25,6 +25,7 @@ void bfs(int source_code)
             }
         }
     }
+    cout << endl;
 }
 
 int main()
