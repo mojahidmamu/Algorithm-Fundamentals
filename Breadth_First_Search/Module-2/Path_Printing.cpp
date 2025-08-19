@@ -53,13 +53,19 @@ int main()
     cin >> source_code >> dst;
     bfs(source_code);
 
+    vector<int> path;
     int node = dst;
     while (node != -1)
     {
-        cout << node << " ";
+        // cout << node << " ";
+        path.push_back(node);
         node = parent[node];
     }
-    
+    reverse(path.begin(), path.end());
+    for (int x : path)
+    {
+        cout << x << " ";
+    }
 
     // for (int i = 0; i < N; i++)
     // {
