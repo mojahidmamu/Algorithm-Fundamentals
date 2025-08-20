@@ -1,6 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 vector<int> adj_list[1005];
+bool vis[1005];
+
+void dfs(int source_node)
+{
+    
+}
+
 int main()
 {
     int n, e;
@@ -9,7 +16,12 @@ int main()
     {
         int a, b;
         cin >> a >> b;
+        adj_list[a].push_back(b);
+        adj_list[b].push_back(a);
     }
+    memset(vis, false, sizeof(vis));
+
+    dfs(0);
     
     return 0;
 } 
