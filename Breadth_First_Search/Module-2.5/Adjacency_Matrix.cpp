@@ -5,13 +5,15 @@ int main()
     int n;
     cin >> n;
     int adj_list[n][n];
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            adj_list[i][j] = 0;
-        }
-    }
+    // for (int i = 0; i < n; i++)
+    // {
+    //     for (int j = 0; j < n; j++)
+    //     {
+    //         adj_list[i][j] = 0;
+    //     }
+    // }
+
+    memset(adj_list,0, sizeof(adj_list));
 
     // for diagonal:
     for (int i = 0; i < n; i++)
@@ -25,6 +27,7 @@ int main()
         }
     }
 
+    // Manually declare : 
     adj_list[0][1] = 1;
     adj_list[1][0] = 1;
     adj_list[1][2] = 1;
