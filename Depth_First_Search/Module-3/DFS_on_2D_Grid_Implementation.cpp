@@ -23,6 +23,17 @@ bool valid(int i, int j)
 
 int dfs(int Si, int Sj)
 {
+    cout << Si << " " << Sj << endl;
+    vis[Si][Sj] = true;
+    for (int i = 0; i < 4; i++)
+    {
+        int ci = Si + d[i].first;
+        int cj = Sj + d[i].second;
+        if (valid(ci, cj) = true && vis[i][j] == false)
+        {
+            dfs(ci, cj);
+        }
+    }
 }
 
 int main()
