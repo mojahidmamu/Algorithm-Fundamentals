@@ -5,7 +5,15 @@ bool vis[1005];
 
 void dfs(int source_node)
 {
-    
+    cout << source_node << " "; // work with source code by printing
+    vis[source_node] = true;    // true -> from false, the source code after printing this
+    for (int child : adj_list[source_node])
+    {
+        if (vis[child] == false)
+        {
+            dfs(child);
+        }
+    }
 }
 
 int main()
@@ -22,6 +30,6 @@ int main()
     memset(vis, false, sizeof(vis));
 
     dfs(0);
-    
+
     return 0;
-} 
+}
