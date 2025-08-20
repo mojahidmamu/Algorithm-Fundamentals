@@ -16,7 +16,7 @@ void bfs(int source_code)
         int parent = q.front();
         q.pop();
 
-        // cout << parent << " ";
+        cout << parent << " ";
 
         for (int child : adj_list[parent])
         {

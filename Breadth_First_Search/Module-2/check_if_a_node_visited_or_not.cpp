@@ -44,6 +44,7 @@ int main()
     cin >> source_code >> dst;
     bfs(source_code);
 
+    cout << endl;
     if (vis[dst])
     {
         cout << "Yes" << endl;
