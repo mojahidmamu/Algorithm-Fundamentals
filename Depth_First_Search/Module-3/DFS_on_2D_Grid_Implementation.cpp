@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 // Global array:
-int arr[20][20];
+char arr[20][20];
 // visited array:
 bool vis[20][20];
 
@@ -29,7 +29,7 @@ int dfs(int Si, int Sj)
     {
         int ci = Si + d[i].first;
         int cj = Sj + d[i].second;
-        if (valid(ci, cj) = true && vis[i][j] == false)
+        if (valid(ci, cj) && vis[ci][cj] == false)
         {
             dfs(ci, cj);
         }
@@ -38,7 +38,6 @@ int dfs(int Si, int Sj)
 
 int main()
 {
-
     cin >> n >> m;
     for (int i = 0; i < n; i++)
     {
