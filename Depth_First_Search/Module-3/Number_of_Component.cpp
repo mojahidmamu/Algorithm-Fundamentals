@@ -5,7 +5,7 @@ bool vis[1005];
 
 void dfs(int source_node)
 {
-    cout << source_node << " ";
+    // cout << source_node << " ";
     vis[source_node] = true;
     for (int child : adj_list[source_node])
     {
@@ -27,15 +27,18 @@ int main()
         adj_list[a].push_back(b);
         adj_list[b].push_back(a);
     }
+    int count = 0;
     memset(vis, false, sizeof(vis));
     for (int i = 0; i < n; i++)
     {
         if (vis[i] == false)
         {
             dfs(i);
+            count++;
             cout << endl;
         }
     }
+    cout << count << endl;
 
     return 0;
 }
