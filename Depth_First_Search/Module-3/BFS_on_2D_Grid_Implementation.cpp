@@ -35,10 +35,10 @@ void bfs(int Si, int Sj)
         {
             int ci = par_i + d[0].first;
             int cj = par_j + d[0].second;
-            if (!vis[child])
+            if (valid(ci, cj) && !vis[ci][cj])
             {
-                Q.push(child);
-                vis[child] = true;
+                Q.push({ci, cj});
+                vis[ci][cj] = true;
             }
         }
     }
