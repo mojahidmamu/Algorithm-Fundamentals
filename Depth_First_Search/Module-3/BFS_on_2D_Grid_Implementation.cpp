@@ -31,6 +31,9 @@ void bfs(int Si, int Sj)
         Q.pop();
         int par_i = par.first;
         int par_j = par.second;
+
+        cout << par_i << " " << par_j << endl;
+
         for (int i = 0; i < 4; i++)
         {
             int ci = par_i + d[0].first;
