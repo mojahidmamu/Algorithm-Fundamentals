@@ -14,8 +14,9 @@ int bfs(int start_node)
     {
         int par = q.front();
         q.pop();
+        count++;
 
-        for (int child : adj_list(par))
+        for (int child : adj_list[par])
         {
             if (!vis[child])
             {
@@ -45,5 +46,6 @@ int main()
     cin >> start_node;
 
     int result = bfs(start_node);
+    cout << result << endl;
     return 0;
 }
