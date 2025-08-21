@@ -28,7 +28,7 @@ int main()
         adj_list[b].push_back(a);
     }
 
-    int count = 0;  // track the size (initialy 0)
+    int count = 0; // track the size (initially 0)
     memset(vis, false, sizeof(vis));
     for (int i = 0; i < n; i++)
     {
@@ -39,7 +39,7 @@ int main()
             cout << endl;
         }
     }
-    cout << count << endl; //print final size of Component: 
+    cout << count << endl; // print final size of Component:
 
     return 0;
 }
