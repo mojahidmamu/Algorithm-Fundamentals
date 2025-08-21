@@ -1,7 +1,45 @@
 #include <bits/stdc++.h>
 using namespace std;
+vector<int> adj_list[1005];
+bool vis[1005];
+
+void dfs(int source_node)
+{
+    // cout << source_node << " ";
+    vis[source_node] = true;
+    for (int child : adj_list[source_node])
+    {
+        if (vis[child] == false)
+        {
+            dfs(child);
+        }
+    }
+}
+
 int main()
 {
-    
+    int n, e;
+    cin >> n >> e;
+    while (e--)
+    {
+        int a, b;
+        cin >> a >> b;
+        adj_list[a].push_back(b);
+        adj_list[b].push_back(a);
+    }
+
+    int count = 0;  // track the size (initialy 0)
+    memset(vis, false, sizeof(vis));
+    for (int i = 0; i < n; i++)
+    {
+        if (vis[i] == false)
+        {
+            dfs(i);
+            count++;
+            cout << endl;
+        }
+    }
+    cout << count << endl; //print final size of Component: 
+
     return 0;
 }
