@@ -1,7 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main()
+vector<int> adj_list[1005];
+bool vis[1005];
+
+int bfs(int start_node)
 {
     
+}
+
+int main()
+{
+    int n, e;
+    cin >> n >> e;
+    while (e--)
+    {
+        int a, b;
+        cin >> a >> b;
+        adj_list[a].push_back(b);
+        adj_list[b].push_back(a);
+    }
+
+    int start_node;
+    cin >> start_node;
+
+    int result = bfs(start_node);
     return 0;
 }
