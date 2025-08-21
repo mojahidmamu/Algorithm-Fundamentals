@@ -21,7 +21,7 @@ bool valid(int i, int j)
     }
 }
 
-int dfs(int Si, int Sj)
+void dfs(int Si, int Sj)
 {
     cout << Si << " " << Sj << endl;
     vis[Si][Sj] = true;
@@ -43,7 +43,7 @@ int main()
     {
         for (int j = 0; j < m; j++)
         {
-            cin >> arr[i][i];
+            cin >> arr[i][j];
         }
     }
 
