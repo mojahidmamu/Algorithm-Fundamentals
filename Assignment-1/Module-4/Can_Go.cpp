@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 char arr[1005][1005];
+// visited array:
+bool vis[20][20];
 using namespace std;
 int main()
 {
@@ -13,5 +15,7 @@ int main()
         }
     }
 
+    memset(vis, false, sizeof(vis));
+    
     return 0;
 }
