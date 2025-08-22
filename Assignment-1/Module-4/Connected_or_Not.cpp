@@ -19,9 +19,16 @@ int main()
     {
         int A, B;
         cin >> A >> B;
+        if (A == B)
+        {
+            cout << "YES" << endl;
+            continue;
+        }
+
         bool found = false;
         for (int val : adj_list[A])
         {
+
             if (val == B)
             {
                 found = true;
