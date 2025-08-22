@@ -1,11 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-// Global array:
+
 char arr[1005][10005];
-// visited array:
 bool vis[10005][1005];
 vector<pair<int, int>> d = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
-// Global integer:
+
 int n, m;
 pair<int, int> start_point, end_point;
 
@@ -33,7 +32,7 @@ bool bfs()
         int par_i = par.first;
         int par_j = par.second;
 
-        if (par_i == end_point && par_j == start_point.second)
+        if (par_i == end_point.first && par_j == start_point.second)
         {
             return true;
         }
