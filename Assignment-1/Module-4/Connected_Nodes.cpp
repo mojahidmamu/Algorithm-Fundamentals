@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-vector<int> adj_list[1005];
 int main()
 {
     int N, E;
     cin >> N >> E;
+    vector<int> adj_list[N];
     while (E--)
     {
         int a, b;
@@ -13,14 +13,32 @@ int main()
         adj_list[b].push_back(a);
     }
 
+    for (int i = 0; i < N; i++)
+    {
+        sort(adj_list[i].begin(), adj_list[i].end());
+    }
+
     // intput query:
     int Q;
     cin >> Q;
     while (Q--)
     {
-        int testNode;
-        cin >> testNode;
-        
+        int X;
+        cin >> X;
+
+        if (!adj_list[X].empty())
+        {
+            cout << "-1" << endl;
+        }
+        else
+        {
+            for (int val : adj_list[X])
+            {
+                cout << val << " ";
+            }
+            cout << endl;
+        }
     }
+
     return 0;
 }
