@@ -18,6 +18,9 @@ int main()
     cin >> Q;
     while (Q--)
     {
+        int testNode;
+        cin >> testNode;
+        
     }
     return 0;
 }
