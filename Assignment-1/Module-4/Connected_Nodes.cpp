@@ -4,7 +4,7 @@ int main()
 {
     int N, E;
     cin >> N >> E;
-    vector<int> adj_list[N];
+    vector<vector<int>> adj_list(N);
     while (E--)
     {
         int a, b;
@@ -15,7 +15,7 @@ int main()
 
     for (int i = 0; i < N; i++)
     {
-        sort(adj_list[i].begin(), adj_list[i].end());
+        sort(adj_list[i].begin(), adj_list[i].end(), greater<int>());
     }
 
     // intput query:
@@ -26,7 +26,7 @@ int main()
         int X;
         cin >> X;
 
-        if (!adj_list[X].empty())
+        if (adj_list[X].empty())
         {
             cout << "-1" << endl;
         }
