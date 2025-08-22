@@ -19,14 +19,23 @@ int main()
     {
         int A, B;
         cin >> A >> B;
-
-        if (adj_list[A].size(adj_list()))
+        bool found = false;
+        for (int val : adj_list[A])
         {
-            cout << "YES\n";
+            if (val == B)
+            {
+                found = true;
+                break;
+            }
+        }
+
+        if (found == true)
+        {
+            cout << "YES" << endl;
         }
         else
         {
-            cout << "NO\n";
+            cout << "NO" << endl;
         }
     }
 
