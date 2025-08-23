@@ -20,7 +20,6 @@ int bfs(int Si, int Sj)
 
     while (!q.empty())
     {
-        // auto [x, y] = q.front();
         int x = q.front().first;
         int y = q.front().second;
         q.pop();
