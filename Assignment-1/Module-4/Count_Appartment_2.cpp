@@ -1,26 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-char arr[1005][1005];
-bool vis[1005][1005];
 int n, m;
+bool vis[1005][1005];
+vector<string> grid;
 vector<pair<int, int>> d = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
 
 bool valid(int i, int j)
 {
-    return (i >= 0 && i < n && j >= 0 && j < m);
+    return (x >= 0 && x < n && y >= 0 && y < m && !visited[x][y] && grid[x][y] == '.');
 }
 
-void dfs(int Si, int Sj)
+void bfs(int Si, int Sj)
 {
+    int count = 0;
+    queue<pair<int, int>> q;
+    q.push({Si, Sj});
     vis[Si][Sj] = true;
 
     for (auto dir : d)
-    { 
+    {
         int ni = Si + dir.first;
         int nj = Sj + dir.second;
 
-        if (valid(ni, nj) && !vis[ni][nj] && (arr[ni][nj] == '.' ))
+        if (valid(ni, nj) && !vis[ni][nj] && (arr[ni][nj] == '.'))
         {
             dfs(ni, nj);
         }
@@ -30,30 +33,39 @@ void dfs(int Si, int Sj)
 int main()
 {
     cin >> n >> m;
+    grid.resize(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> grid[i];
+    }
+
+    vector<int> apartments;
+
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
         {
-            cin >> arr[i][j];
+            if (!vis[i][j] && grid[i][j] == '.')
+            {
+                apartments.push_back(bfs(i, j));
+            }
         }
     }
 
     memset(vis, false, sizeof(vis));
 
-    int apartments = 0;
-    for (int i = 0; i < n; i++)
+    if (apartments.empty())
     {
-        for (int j = 0; j < m; j++)
-        {
-            if (!vis[i][j] && arr[i][j] == '.')
-            {
-                dfs(i, j);
-                apartments++;
-            }
-        }
+        return 0;
     }
 
-    cout << apartments << endl;
+    sort(apartments.begin(), apartments.end());
+    for (int i = 0; i < apartments.size(); i++)
+    {
+        cout << apartments[i] << " ";
+    }
+    cout << endl;
+
     return 0;
 }
-// Accepted: 
+// Accepted:
