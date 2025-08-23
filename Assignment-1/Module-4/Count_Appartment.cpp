@@ -56,3 +56,4 @@ int main()
     cout << apartments << endl;
     return 0;
 }
+// Accepted: 
