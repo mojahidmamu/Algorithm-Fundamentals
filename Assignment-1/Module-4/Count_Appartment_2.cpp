@@ -18,16 +18,25 @@ void bfs(int Si, int Sj)
     q.push({Si, Sj});
     vis[Si][Sj] = true;
 
-    for (auto dir : d)
+    while (!q.empty())
     {
-        int ni = Si + dir.first;
-        int nj = Sj + dir.second;
+        auto [x, y] = q.front();
+        q.pop();
+        count++;
 
-        if (valid(ni, nj) && !vis[ni][nj] && (arr[ni][nj] == '.'))
+        for(auto [dx, dy] : d)
         {
-            dfs(ni, nj);
+            int nx = x + dx;
+            int ny = y + dy;
+            if (vis(nx, ny))
+            {
+                vis[nx][ny] = true;
+                q.push({nx, ny});
+            }
+            
         }
     }
+    return count;
 }
 
 int main()
