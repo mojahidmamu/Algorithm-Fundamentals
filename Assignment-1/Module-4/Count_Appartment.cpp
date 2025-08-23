@@ -1,15 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-// Global array:
-char arr[1005][1005];
-// visited array:
-bool vis[1005][1005];
 
-vector<pair<int, int>> d = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
-// Global integer:
+char arr[1005][1005];
+bool vis[1005][1005];
 int n, m;
-pair<int, int> start_point, end_point;
-bool found = false;
+vector<pair<int, int>> d = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
 
 bool valid(int i, int j)
 {
@@ -18,28 +13,16 @@ bool valid(int i, int j)
 
 void dfs(int Si, int Sj)
 {
-    if (found)
-    {
-        return;
-    }
     vis[Si][Sj] = true;
 
-    if (Si == end_point.first && Sj == end_point.second)
-    {
-        found = true;
-        return;
-    }
+    for (auto dir : d)
+    { 
+        int ni = Si + dir.first;
+        int nj = Sj + dir.second;
 
-    for (auto [dx, dy] : d)
-    {
-        int dx = dir.first;
-        int dy = dir.second;
-        int ci = Si + dx;
-        int cj = Sj + dy;
-
-        if (valid(ci, cj) && !vis[ci][cj] && (arr[ci][cj] == '.' || arr[ci][cj] == 'B'))
+        if (valid(ni, nj) && !vis[ni][nj] && (arr[ni][nj] == '.' ))
         {
-            dfs(ci, cj);
+            dfs(ni, nj);
         }
     }
 }
@@ -52,27 +35,24 @@ int main()
         for (int j = 0; j < m; j++)
         {
             cin >> arr[i][j];
-            if (arr[i][j] == 'A')
-            {
-                start_point = {i, j};
-            }
-            if (arr[i][j] == 'B')
-            {
-                end_point = {i, j};
-            }
         }
     }
 
     memset(vis, false, sizeof(vis));
-    dfs(start_point.first, start_point.second);
-    if (found)
+
+    int apartments = 0;
+    for (int i = 0; i < n; i++)
     {
-        cout << "YES" << endl;
-    }
-    else
-    {
-        cout << "NO" << endl;
+        for (int j = 0; j < m; j++)
+        {
+            if (!vis[i][j] && arr[i][j] == '.')
+            {
+                dfs(i, j);
+                apartments++;
+            }
+        }
     }
 
+    cout << apartments << endl;
     return 0;
 }
