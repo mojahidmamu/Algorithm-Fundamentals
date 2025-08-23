@@ -8,32 +8,35 @@ vector<pair<int, int>> d = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
 
 bool valid(int i, int j)
 {
-    return (x >= 0 && x < n && y >= 0 && y < m && !visited[x][y] && grid[x][y] == '.');
+    return (i >= 0 && i < n && j >= 0 && j < m && !vis[i][j] && grid[i][j] == '.');
 }
 
-void bfs(int Si, int Sj)
+int bfs(int Si, int Sj)
 {
     int count = 0;
     queue<pair<int, int>> q;
-    q.push({Si, Sj});
+    q.push(make_pair(Si, Sj));
     vis[Si][Sj] = true;
 
     while (!q.empty())
     {
-        auto [x, y] = q.front();
+        // auto [x, y] = q.front();
+        int x = q.front().first;
+        int y = q.front().second;
         q.pop();
         count++;
 
-        for(auto [dx, dy] : d)
+        for (int k = 0; k < d.size(); k++)
         {
+            int dx = d[k].first;
+            int dy = d[k].second;
             int nx = x + dx;
             int ny = y + dy;
-            if (vis(nx, ny))
+            if (valid(nx, ny))
             {
                 vis[nx][ny] = true;
-                q.push({nx, ny});
+                q.push(make_pair(nx, ny));
             }
-            
         }
     }
     return count;
@@ -60,8 +63,6 @@ int main()
             }
         }
     }
-
-    memset(vis, false, sizeof(vis));
 
     if (apartments.empty())
     {
