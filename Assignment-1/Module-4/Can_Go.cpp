@@ -91,25 +91,31 @@ bool found = false;
 
 bool valid(int i, int j)
 {
-    if (i < 0 || i >= n || j < 0 || j >= m)
-    {
-        return false;
-    }
-    else
-    {
-        return true;
-    }
+    return (i >= 0 && i < n && j >= 0 && j < m);
 }
 
 void dfs(int Si, int Sj)
 {
-    cout << Si << " " << Sj << endl;
-    vis[Si][Sj] = true;
-    for (int i = 0; i < 4; i++)
+    if (found)
     {
-        int ci = Si + d[i].first;
-        int cj = Sj + d[i].second;
-        if (valid(ci, cj) && vis[ci][cj] == false)
+        return;
+    }
+    vis[Si][Sj] = true;
+
+    if (Si == end_point.first && Sj == end_point.second)
+    {
+        found = true;
+        return;
+    }
+
+    for (auto [dx, dy] : d)
+    {
+        int dx = dir.first;
+        int dy = dir.second;
+        int ci = Si + dx;
+        int cj = Sj + dy;
+
+        if (valid(ci, cj) && !vis[ci][cj] && (arr[ci][cj] == '.' || arr[ci][cj] == 'B'))
         {
             dfs(ci, cj);
         }
@@ -124,12 +130,20 @@ int main()
         for (int j = 0; j < m; j++)
         {
             cin >> arr[i][j];
+            if (arr[i][j] == 'A')
+            {
+                start_point = {i, j};
+            }
+            if (arr[i][j] == 'B')
+            {
+                end_point = {i, j};
+            }
         }
     }
 
     memset(vis, false, sizeof(vis));
     dfs(start_point.first, start_point.second);
-    if (found())
+    if (found)
     {
         cout << "YES" << endl;
     }
