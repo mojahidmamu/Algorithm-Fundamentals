@@ -17,7 +17,7 @@ void bfs(int source)
         // cout << par << " ";
         for (int child : adj_list[par])
         {
-            if(vis[child] && parent[par] != child)
+            if(vis[child] == true && parent[par] != child)
             {
                 isCycle = true;
             }
