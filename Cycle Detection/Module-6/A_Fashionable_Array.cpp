@@ -15,28 +15,17 @@ int main()
         }
 
         sort(arr, arr + N);
+        int mn = arr[0];
+        int mx = arr[N - 1];
 
-        for (int i = 0; i < N; i++)
-        {
-            cout << arr[i] << " ";
-        }
-        cout << endl;
+        int needOperation;
 
-        int mn = INT_MAX;
-        int mx = INT_MIN;
-        for (int i = 0; i < N; i++)
+        if ((mn % 2 == 0 && mx % 2 == 0) || (mn % 2 == 1 && mx % 2 == 1))
         {
-            if (arr[i] < arr[mn])
-            {
-                mn = arr[i];
-                break;
-            }
-            if (arr[mx] < arr[i])
-            {
-                mx = arr[i];
-                break;
-            }
+            needOperation = 0;
         }
+
+        cout << needOperation << endl;
     }
 
     return 0;
