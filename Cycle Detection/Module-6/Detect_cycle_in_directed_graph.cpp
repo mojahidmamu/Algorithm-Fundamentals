@@ -10,7 +10,7 @@ void dfs(int source)
     vis[source] = true;
     for (int child : adj_list[source])
     {
-        if (vis[child] == true && parent[source] != child)
+        if (vis[child] == true)
         {
             isCycle = true;
         }
@@ -32,7 +32,6 @@ int main()
         int a, b;
         cin >> a >> b;
         adj_list[a].push_back(b);
-        adj_list[b].push_back(a);
     }
 
     memset(vis, false, sizeof(vis));
