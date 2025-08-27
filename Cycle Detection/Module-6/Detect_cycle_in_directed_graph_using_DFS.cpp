@@ -20,6 +20,7 @@ void dfs(int source)
             dfs(child);
         }
     }
+     pathVis[source] = false;
 }
 
 int main()
