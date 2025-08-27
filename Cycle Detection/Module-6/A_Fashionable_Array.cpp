@@ -18,14 +18,31 @@ int main()
         int mn = arr[0];
         int mx = arr[N - 1];
 
-        int needOperation;
-
         if ((mn % 2 == 0 && mx % 2 == 0) || (mn % 2 == 1 && mx % 2 == 1))
         {
-            needOperation = 0;
+            cout << "0" << endl;
         }
+        else
+        {
+            int i = 0;
+            int needOperation1 = 0;
+            while (arr[i] % 2 != mx % 2)
+            {
+                i++;
+                needOperation1++;
+            }
+            //
+            int j = N - 1;
+            int needOperation2 = 0;
+            while (mn % 2 != arr[j] % 2)
+            {
+                j--;
+                needOperation2++;
+            }
 
-        cout << needOperation << endl;
+            int FinalOperation = min(needOperation1, needOperation2);
+            cout << FinalOperation << endl;
+        }
     }
 
     return 0;
