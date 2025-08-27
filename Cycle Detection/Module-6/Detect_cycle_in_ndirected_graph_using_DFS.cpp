@@ -16,8 +16,8 @@ void dfs(int source)
         }
         if (!vis[child])
         {
-            dfs(child);
             parent[child] = source;
+            dfs(child);
         }
     }
 }
