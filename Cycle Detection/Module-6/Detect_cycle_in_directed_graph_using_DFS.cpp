@@ -2,21 +2,21 @@
 using namespace std;
 bool vis[1005];
 vector<int> adj_list[1005];
-int parent[1005];
+bool  pathVis[1005];
 bool isCycle;
 
 void dfs(int source)
 {
     vis[source] = true;
+    pathVis[source] = true;
     for (int child : adj_list[source])
     {
-        if (vis[child] == true && parent[source] != child)
+        if (vis[child] == true && pathVis[child] == true)
         {
             isCycle = true;
         }
         if (!vis[child])
         {
-            parent[child] = source;
             dfs(child);
         }
     }
@@ -32,11 +32,10 @@ int main()
         int a, b;
         cin >> a >> b;
         adj_list[a].push_back(b);
-        adj_list[b].push_back(a);
     }
 
     memset(vis, false, sizeof(vis));
-    memset(parent, -1, sizeof(parent));
+    memset(pathVis, false, sizeof(pathVis));
     isCycle = false;
     for (int i = 0; i < N; i++)
     {
