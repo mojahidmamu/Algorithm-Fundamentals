@@ -22,7 +22,7 @@ void dijkstra(int source)
 
             if (par_dis + child_dis < dis[child_node])
             {
-                dis[child_node] = true;
+                dis[child_node] = par_dis + child_dis;
                 q.push({child_node, dis[child_node]});
             }
         }
