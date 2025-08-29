@@ -1,14 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
-char grid[8][8];
-bool vis[8][8];
-int level[8][8];
+
+bool vis[1005][1005];
+int level[1005][1005];
 vector<pair<int, int>> d = {{2, -1}, {1, -2}, {2, 1}, {1, 2}, {-1, 2}, {-2, 1}, {-2, -1}, {-1, -2}};
-int n = 8, m = 8;
+int N, M;
 
 bool valid(int i, int j)
 {
-    return (i >= 0 && i < 8 && j >= 0 && j < 8);
+    return (i >= 0 && i < N && j >= 0 && j < M);
 }
 
 void bfs(int si, int sj)
@@ -48,13 +48,9 @@ int main()
     cin >> tc;
     while (tc--)
     {
-        string src, des;
-        cin >> src >> des;
-
-        int si = src[1] - '1'; // rank (row) → 0-based
-        int sj = src[0] - 'a'; // file (col) → 0-based
-        int di = des[1] - '1';
-        int dj = des[0] - 'a';
+        cin >> N >> M;
+        int si, sj, di, dj;
+        cin >> si >> sj >> di >> dj;
 
         memset(vis, false, sizeof(vis));
         memset(level, -1, sizeof(level));
