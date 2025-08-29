@@ -24,10 +24,14 @@ void bfs(int si, int sj)
         int par_i = par.first;
         int par_j = par.second;
 
-        for (int i = 0; i < 8; i++)
+        for (auto child : d)
         {
-            int ci = par_i + d[i].first;
-            int cj = par_j + d[i].second;
+            int X = child.first;
+            int Y = child.second;
+
+            int ci = par_i + X;
+            int cj = par_j + Y;
+
             if (valid(ci, cj) && !vis[ci][cj])
             {
                 q.push({ci, cj});
