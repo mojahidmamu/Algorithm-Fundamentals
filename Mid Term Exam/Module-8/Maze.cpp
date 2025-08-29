@@ -32,8 +32,8 @@ bool dfs(int x, int y)
                 if (maze[x][y] != 'R')
                 {
                     maze[x][y] = 'X';
-                    return true;
                 }
+                return true;
             }
         }
     }
