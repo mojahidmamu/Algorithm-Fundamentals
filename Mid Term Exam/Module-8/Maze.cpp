@@ -6,6 +6,11 @@ vector<string> maze;
 bool vis[1005][1005];
 int startX, startY;
 
+bool valid(int x, int y)
+{
+    return (x >= 0 && x < N && y >= 0 && y < M && !vis[x][y] && (maze[x][y] == '.' || maze[x][y] == 'D'));
+}
+
 bool dfs(int x, int y)
 {
 }
@@ -42,7 +47,7 @@ int main()
         for (int i = 0; i < N; i++)
         {
             cout << maze[i] << endl;
-        }
+        } 
     }
 
     return 0;
