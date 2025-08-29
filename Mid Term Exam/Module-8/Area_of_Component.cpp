@@ -2,7 +2,7 @@
 using namespace std;
 
 int N, M;
-vector<string> grid(1005);
+vector<string> grid;
 bool vis[1005][1005];
 vector<pair<int, int>> d = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
 
@@ -11,11 +11,12 @@ bool valid(int x, int y)
     return (x >= 0 && x < N && y >= 0 && y < M && !vis[x][y] && grid[x][y] == '.');
 }
 
-bool bfs(int Si, int Sj, int Di, int Dj)
+int bfs(int x, int y)
 {
     queue<pair<int, int>> q;
-    q.push({Si, Sj});
-    vis[Si][Sj] = true;
+    q.push({x, y});
+    vis[x][y] = true;
+    int count = 1;
 
     while (!q.empty())
     {
@@ -24,26 +25,22 @@ bool bfs(int Si, int Sj, int Di, int Dj)
         int x = par.first;
         int y = par.second;
 
-        if (x == Di && y == Dj)
-        {
-            return true;
-        }
-
         for (auto child : d)
         {
-            int A = child.first;
-            int B = child.second;
+            int X = child.first;
+            int Y = child.second;
 
-            int Nx = x + A;
-            int Ny = y + B;
+            int Nx = x + X;
+            int Ny = y + Y;
             if (valid(Nx, Ny))
             {
                 vis[Nx][Ny] = true;
                 q.push({Nx, Ny});
+                count++;
             }
         }
     }
-    return false;
+    return count;
 }
 
 int main()
@@ -54,26 +51,29 @@ int main()
     {
         cin >> grid[i];
     }
-
-    int Si, Sj, Di, Dj;
-    cin >> Si >> Sj;
-    cin >> Di >> Dj;
-
-    if (grid[Si][Sj] == '-' || grid[Di][Dj] == '-') // if source & destination path is wrong
-    {
-        cout << "NO" << endl;
-    }
+    int ans = INT_MAX;
     memset(vis, false, sizeof(vis));
 
-    if (bfs(Si, Sj, Di, Dj))
+    for (int i = 0; i < N; i++)
     {
-        cout << "YES" << endl;
+        for (int j = 0; j < M; j++)
+        {
+            if (grid[i][j] == '.' && !vis[i][j])
+            {
+                int area = bfs(i, j);
+                ans = min(ans, area);
+            }
+        }
+    }
+
+    if (ans == INT_MAX)
+    {
+        cout << "-1" << endl;
     }
     else
     {
-        cout << "NO" << endl;
+        cout << ans << endl;
     }
 
     return 0;
 }
-// 
