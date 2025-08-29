@@ -1,23 +1,44 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+int N, M;
+vector<string> grid(1005);
+bool vis[1005][1005];
+
+bool bfs(int Si, int Sj, int Di, int Dj)
+{
+    queue<pair<int, int>> q;
+    q.push({Si, Sj});
+    vis[Si][Sj] = true;
+}
+
 int main()
 {
-    int N, M;
     cin >> N >> M;
-    vector<string> grid(N);
-
+    grid.resize(N);
     for (int i = 0; i < N; i++)
     {
-         cin >> grid[i];
-    } 
-    int Si, Sj;
+        cin >> grid[i];
+    }
+
+    int Si, Sj, Di, Dj;
     cin >> Si >> Sj;
-    int Di, Dj;
     cin >> Di >> Dj;
 
-    for (int i = 0; i < N; i++)
+    if (grid[Si][Sj] == '-' || grid[Di][Dj] == '-') // if source & destination path is wrong
     {
-        cout << grid[i] << endl;
+        cout << "NO" << endl;
+    }
+    memset(vis, false, sizeof(vis));
+
+
+    if (bfs(Si, Sj, Di, Dj))
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
     }
 
     return 0;
