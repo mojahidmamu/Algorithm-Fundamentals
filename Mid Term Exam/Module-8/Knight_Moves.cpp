@@ -8,14 +8,7 @@ int n = 8, m = 8;
 
 bool valid(int i, int j)
 {
-    if (i < 0 || i >= n || j < 0 || j >= m)
-    {
-        return false;
-    }
-    else
-    {
-        return true;
-    }
+    return (i >= 0 && i < 8 && j >= 0 && j < 8);
 }
 
 void bfs(int si, int sj)
@@ -58,8 +51,8 @@ int main()
 
         int si, sj, di, dj;
         // cin >> si >> sj >> di >> dj;
-        si = src[1] - '1';
-        sj = src[0] - 'a';
+        si = src[1] - '1'; // rank (row) → 0-based
+        sj = src[0] - 'a'; // file (col) → 0-based
         di = des[1] - '1';
         dj = des[0] - 'a';
         // cout << si << sj << " " << di << dj << endl;
@@ -70,11 +63,3 @@ int main()
     }
     return 0;
 }
-
-/*
-input:
-3
-a1 h8
-a1 c2
-h8 c3
-*/
