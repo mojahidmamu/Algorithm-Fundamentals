@@ -44,22 +44,26 @@ int main()
     cin >> tc;
     while (tc--)
     {
-        // cin >> n >> m;
-        // n = 8, m = 8;
         string src, des;
         cin >> src >> des;
 
-        int si, sj, di, dj;
-        // cin >> si >> sj >> di >> dj;
-        si = src[1] - '1'; // rank (row) → 0-based
-        sj = src[0] - 'a'; // file (col) → 0-based
-        di = des[1] - '1';
-        dj = des[0] - 'a';
-        // cout << si << sj << " " << di << dj << endl;
+        int si = src[1] - '1'; // rank (row) → 0-based
+        int sj = src[0] - 'a'; // file (col) → 0-based
+        int di = des[1] - '1';
+        int dj = des[0] - 'a';
+
         memset(vis, false, sizeof(vis));
         memset(level, -1, sizeof(level));
         bfs(si, sj);
-        cout << level[di][dj] << endl;
+
+        if (level[di][dj] == -1)
+        {
+            cout << -1 << endl;
+        }
+        else
+        {
+            cout << level[di][dj] << endl;
+        }
     }
     return 0;
 }
