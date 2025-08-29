@@ -4,13 +4,18 @@ char grid[8][8];
 bool vis[8][8];
 int level[8][8];
 vector<pair<int, int>> d = {{2, -1}, {1, -2}, {2, 1}, {1, 2}, {-1, 2}, {-2, 1}, {-2, -1}, {-1, -2}};
-int n=8, m=8;
+int n = 8, m = 8;
 
 bool valid(int i, int j)
 {
     if (i < 0 || i >= n || j < 0 || j >= m)
+    {
         return false;
-    return true;
+    }
+    else
+    {
+        return true;
+    }
 }
 
 void bfs(int si, int sj)
@@ -66,11 +71,10 @@ int main()
     return 0;
 }
 
-/* 
+/*
 input:
 3
 a1 h8
 a1 c2
 h8 c3
-
 */
