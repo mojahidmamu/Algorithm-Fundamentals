@@ -5,6 +5,7 @@ int N, M;
 vector<string> maze;
 bool vis[1005][1005];
 int startX, startY;
+
 int dx[4] = {0, 0, -1, 1};
 int dy[4] = {1, -1, 0, 0};
 
@@ -61,23 +62,12 @@ int main()
     }
     memset(vis, false, sizeof(vis));
 
-    bool found = dfs(startX, startY);
+    dfs(startX, startY);
 
-    if (found)
+    for (int i = 0; i < N; i++)
     {
-        for (int i = 0; i < N; i++)
-        {
-            cout << maze[i] << endl;
-        }
-    }
-    else
-    {
-        for (int i = 0; i < N; i++)
-        {
-            cout << maze[i] << endl;
-        }
+        cout << maze[i] << endl;
     }
 
     return 0;
 }
-
