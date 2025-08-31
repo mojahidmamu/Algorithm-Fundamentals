@@ -23,6 +23,12 @@ main()
     {
         int a, b, c;
         cin >> a >> b >> c;
+        edge_list.push_back(Edge(a, b, c));
+    }
+
+    for(auto ed : edge_list)
+    {
+        cout << ed.a << " " << ed.b << " " << ed.c << endl;
     }
 
     return 0;
