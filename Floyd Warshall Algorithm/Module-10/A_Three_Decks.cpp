@@ -1,10 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-bool isEqual(int a, int b, int c)
-{
-}
-
 int main()
 {
     int TestCase;
@@ -14,9 +9,9 @@ int main()
         int a, b, c;
         cin >> a >> b >> c;
 
-       bool result =  isEqual(a, b, c);
+       int total = a + b + c;
 
-        if (result == true)
+        if (total % 3 == 0 && b <= total / 3)
         {
             cout << "YES" << endl;
         }
