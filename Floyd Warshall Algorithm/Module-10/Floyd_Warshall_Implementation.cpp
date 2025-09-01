@@ -34,7 +34,7 @@ int main()
         {
             for (int j = 0; j < n; j++)
             {
-                if (adj_matrix[i][k] != INT_MAX)
+                if (adj_matrix[i][k] != INT_MAX && adj_matrix[k][j] != INT_MAX)
                 {
                     if (adj_matrix[i][k] + adj_matrix[k][j] < adj_matrix[i][j])
                     {
