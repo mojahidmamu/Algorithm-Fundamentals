@@ -14,16 +14,14 @@ int calculate_time(string s)
         {
             time += 2;
         }
-        return time;
     }
+    return time;
 };
-
 
 int main()
 {
     int TestCase;
     cin >> TestCase;
-    cin.ignore();
     while (TestCase--)
     {
         string s;
@@ -32,11 +30,21 @@ int main()
         int best_time = -1;
         string best_string;
 
-        for (int i = 0; i < s.size(); i++)
+        for (int i = 0; i <= s.size(); i++)
         {
-            
+            for (char ch = 'a'; ch <= 'z'; ch++)
+            {
+                string temp = s;
+                temp.insert(temp.begin() + i, ch);
+                int t = calculate_time(temp);
+                if (t > best_time)
+                {
+                    best_time = t;
+                    best_string = temp;
+                }
+            }
         }
-        
+        cout << best_string << endl;
     }
 
     return 0;
