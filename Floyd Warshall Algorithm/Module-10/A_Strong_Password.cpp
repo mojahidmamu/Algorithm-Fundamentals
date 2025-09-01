@@ -16,7 +16,9 @@ int calculate_time(string s)
         }
         return time;
     }
-}
+};
+
+
 int main()
 {
     int TestCase;
@@ -29,6 +31,12 @@ int main()
 
         int best_time = -1;
         string best_string;
+
+        for (int i = 0; i < s.size(); i++)
+        {
+            
+        }
+        
     }
 
     return 0;
