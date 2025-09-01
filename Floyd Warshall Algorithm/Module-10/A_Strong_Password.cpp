@@ -37,7 +37,7 @@ int main()
                 string temp = s;
                 temp.insert(temp.begin() + i, ch);
                 int t = calculate_time(temp);
-                if (t > best_time)
+                if (t > best_time || (t == best_time && temp < best_string))
                 {
                     best_time = t;
                     best_string = temp;
