@@ -28,20 +28,31 @@ int main()
         adj_matrix[a][b] = c; // for directed graph:
     }
 
-    for (int i = 0; i < n; i++)
+    for (int k = 0; k < n; k++)
     {
-        for (int j = 0; j < n; j++)
+        for (int i = 0; i < n; i++)
         {
-            if (adj_matrix[i][j] == INT_MAX)
+            for (int j = 0; j < n; j++)
             {
-                cout << "INF" << " ";
-            }
-            else
-            {
-                cout << adj_matrix[i][j] << " ";
+                cout << i << " " << k << " " << j << endl;
             }
         }
-        cout << endl;
     }
+
+    // for (int i = 0; i < n; i++)
+    // {
+    //     for (int j = 0; j < n; j++)
+    //     {
+    //         if (adj_matrix[i][j] == INT_MAX)
+    //         {
+    //             cout << "INF" << " ";
+    //         }
+    //         else
+    //         {
+    //             cout << adj_matrix[i][j] << " ";
+    //         }
+    //     }
+    //     cout << endl;
+    // }
     return 0;
 }
