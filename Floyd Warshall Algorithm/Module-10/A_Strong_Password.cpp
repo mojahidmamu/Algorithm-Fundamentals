@@ -2,6 +2,13 @@
 using namespace std;
 int main()
 {
-    
+    int TestCase;
+    cin >> TestCase;
+    while (TestCase--)
+    {
+        string s;
+        cin >> s;
+    }
+
     return 0;
 }
