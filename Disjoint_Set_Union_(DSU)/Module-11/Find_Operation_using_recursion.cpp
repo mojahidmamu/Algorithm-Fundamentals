@@ -11,7 +11,7 @@ int DSU_find(int node)
     if (par[node] == -1)
     {
         return node;
-        }
+    }
     return DSU_find(par[node]);
 }
 
@@ -25,6 +25,7 @@ int main()
     par[4] = 5;
     par[5] = 3;
 
-    cout << par[4] << endl;
+    int result = DSU_find(4);
+    cout << result << endl;
     return 0;
 }

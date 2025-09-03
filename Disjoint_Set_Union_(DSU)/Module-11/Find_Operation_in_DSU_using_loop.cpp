@@ -8,7 +8,7 @@ int groupSize[N];
 // DSU-(find): Time Complexity= O(N)
 int DSU_find(int node)
 {
-    while(par[node] == -1)
+    while(par[node] != -1)
     {
         node = par[node];
     }
@@ -25,6 +25,6 @@ int main()
     par[4] = 5;
     par[5] = 3;
 
-    cout << par[4] << endl;
+    cout << DSU_find(par[4]) << endl;
     return 0;
 }
