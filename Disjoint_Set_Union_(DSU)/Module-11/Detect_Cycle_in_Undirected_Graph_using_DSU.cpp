@@ -27,8 +27,8 @@ int DSU_find(int node)
 
 void DSU_union(int node1, int node2)
 {
-    int LeaderA = find_Leader(node1);
-    int LeaderB = find_Leader(node2);
+    int LeaderA = DSU_find(node1);
+    int LeaderB = DSU_find(node2);
 
     if (groupSize[LeaderA] > groupSize[LeaderB])
     {
