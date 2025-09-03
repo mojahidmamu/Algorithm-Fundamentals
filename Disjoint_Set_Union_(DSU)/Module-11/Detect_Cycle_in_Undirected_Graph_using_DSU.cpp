@@ -44,12 +44,15 @@ void union_by_size(int node1, int node2)
 
 int main()
 {
-    int n, m;
-    cin >> n >> m;
+    memset(parent, -1, sizeof(parent));
+    memset(groupSize, 1, sizeof(groupSize));
+    
+    int n, e;
+    cin >> n >> e;
     DSU_initialize(n);
     bool isCycle = false;
 
-    while (m--)
+    while (e--)
     {
         int a, b;
         cin >> a >> b;
