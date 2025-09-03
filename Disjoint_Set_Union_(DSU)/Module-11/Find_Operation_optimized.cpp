@@ -5,7 +5,7 @@ const int N = 1e5 + 5;
 int par[N];
 int groupSize[N];
 
-// DSU-(find): Time Complexity= O(N)
+// DSU-(find): Time Complexity= O(logN)
 int DSU_find(int node)
 {
     if (par[node] == -1)
