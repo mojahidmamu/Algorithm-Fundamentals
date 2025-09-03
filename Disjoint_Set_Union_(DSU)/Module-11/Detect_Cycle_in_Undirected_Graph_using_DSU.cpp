@@ -14,18 +14,18 @@ void DSU_initialize(int n)
     }
 }
 
-int find_Leader(int node)
+int DSU_find(int node)
 {
     if (parent[node] == -1)
     {
         return node;
     }
-    int leader = find_Leader(parent[node]);
+    int leader = DSU_find(parent[node]);
     parent[node] = leader;
     return leader;
 }
 
-void union_by_size(int node1, int node2)
+void DSU_union(int node1, int node2)
 {
     int LeaderA = find_Leader(node1);
     int LeaderB = find_Leader(node2);
@@ -46,7 +46,7 @@ int main()
 {
     memset(parent, -1, sizeof(parent));
     memset(groupSize, 1, sizeof(groupSize));
-    
+
     int n, e;
     cin >> n >> e;
     DSU_initialize(n);
@@ -56,8 +56,8 @@ int main()
     {
         int a, b;
         cin >> a >> b;
-        int LeaderA = find_Leader(a);
-        int LeaderB = find_Leader(b);
+        int LeaderA = DSU_find(a);
+        int LeaderB = DSU_find(b);
 
         if (LeaderA == LeaderA)
         {
@@ -65,7 +65,7 @@ int main()
         }
         else
         {
-            union_by_size(a, b);
+            DSU_union(a, b);
         }
     }
 
