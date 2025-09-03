@@ -10,10 +10,9 @@ int DSU_find(int node)
 {
     if (par[node] == -1)
     {
-        node = par[node];
-    }
-    return node;
-    // return DSU_find(par[node]);
+        return node;
+        }
+    return DSU_find(par[node]);
 }
 
 int main()
