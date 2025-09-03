@@ -28,6 +28,7 @@ int DSU_union(int node1, int node2)
 int main()
 {
     memset(par, -1, sizeof(par));
+    memset(groupSize, 1, sizeof(groupSize));
     
     DSU_union(1, 2);
 
