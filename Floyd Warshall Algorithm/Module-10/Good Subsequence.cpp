@@ -9,18 +9,22 @@ int main()
         int N;
         cin >> N;
         int arr[N];
+        int even = 0, odd = 0;
         for (int i = 1; i <= N; i++)
         {
             cin >> arr[i];
-        }
-
-        for (int i = 1; i <= N; i++)
-        {
-            if (arr[i] % 2 != arr[i - 1] % 2)
+            if (arr[i] % 2 == 0)
             {
-                
+                even++;
+            }
+            else
+            {
+                odd++;
             }
         }
+
+         int result = ;
+         cout << result << endl;
     }
 
     return 0;
