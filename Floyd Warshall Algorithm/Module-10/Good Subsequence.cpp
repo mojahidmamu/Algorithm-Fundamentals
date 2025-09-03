@@ -9,22 +9,22 @@ int main()
         int N;
         cin >> N;
         int arr[N];
-        int even = 0, odd = 0;
         for (int i = 1; i <= N; i++)
         {
             cin >> arr[i];
-            if (arr[i] % 2 == 0)
-            {
-                even++;
-            }
-            else
-            {
-                odd++;
-            }
         }
 
-         int result = ;
-         cout << result << endl;
+        int ans = 1;
+        int last = arr[0] % 2;
+        for (int i = 0; i < N; i++)
+        {
+            if (arr[i] % 2 != last)
+            {
+                ans++;
+                last = arr[i] % 2;
+            }
+        }
+        cout << ans << endl;
     }
 
     return 0;
