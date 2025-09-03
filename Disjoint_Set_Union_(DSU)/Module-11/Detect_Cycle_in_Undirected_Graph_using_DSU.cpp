@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const N = 1e5 + 5;
+const int N = 1e5 + 5;
 int parent[N];
 int groupSize[N];
 
@@ -27,6 +27,19 @@ int find_Leader(int node)
 
 void union_by_size(int node1, int node2)
 {
+    int LeaderA = find_Leader(node1);
+    int LeaderB = find_Leader(node2);
+
+    if (groupSize[LeaderA] > groupSize[LeaderB])
+    {
+        parent[LeaderB] = LeaderA;
+        groupSize[LeaderA] += groupSize[LeaderB];
+    }
+    else
+    {
+        parent[LeaderA] = LeaderB;
+        groupSize[LeaderB] += groupSize[LeaderA];
+    }
 }
 
 int main()
