@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// DSU: Time Complexity= O(N)
+// DSU-(find): Time Complexity= O(N)
 int DSU_find(int node)
 {
     if (par[node] == -1)
