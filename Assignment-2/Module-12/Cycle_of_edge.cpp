@@ -10,4 +10,4 @@ int main()
         cin >> a >> b >> c;
     }
     return 0;
-}
+} 

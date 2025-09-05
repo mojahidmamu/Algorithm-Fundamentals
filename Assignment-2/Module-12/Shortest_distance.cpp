@@ -1,56 +1,50 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<pair<int, int>> adj_list[1005]; // array of vector with every index have a pair(int, int)
-int dis[1005];
-
-void dijkstra(int source, int N)
-{
-    for (int i = 1; i <= N; i++)
-    {
-        dis[i] = INT_MAX;
-    }
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
-
-    dis[source] = 0;
-    q.push({0, source});
-
-    while (!q.empty())
-    {
-        auto par = q.top(); // auto for access one pair<int, int>
-        q.pop();
-
-        int par_dis = par.first;
-        int par_node = par.second;
-
-        if (par_dis > dis[par_node])
-        {
-            continue; 
-        }
-
-        for (auto child : adj_list[par_node])
-        {
-            int child_node = child.first;
-            int child_dis = child.second;
-
-            if (par_dis + child_dis < dis[child_node])
-            {
-                dis[child_node] = par_dis + child_dis;
-                q.push({dis[child_node], child_node});
-            }
-        }
-    }
-}
+const int INF = 1e9;
 
 int main()
 {
     int N, E;
     cin >> N >> E;
+    vector<vector<int>> adj_matrix(N, vector<int>(N, INF));
+
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            if (i == j)
+            {
+                adj_matrix[i][j] = 0;
+            }
+            else
+            {
+                adj_matrix[i][j] = INF;
+            }
+        }
+    }
+
     while (E--)
     {
         int a, b, c;
         cin >> a >> b >> c;
-        adj_list[a].push_back({b, c});
+        a--;
+        b--;
+        adj_matrix[a][b] = min(adj_matrix[a][b], c);
+    }
+
+    for (int k = 0; k < N; k++)
+    {
+        for (int i = 0; i < N; i++)
+        {
+            for (int j = 0; j < N; j++)
+            {
+                if (adj_matrix[i][k] < INF && adj_matrix[k][j] < INF)
+                {
+                    adj_matrix[i][j] = min(adj_matrix[i][j], adj_matrix[i][k] + adj_matrix[k][j]);
+                }
+            }
+        }
     }
 
     int Query;
@@ -59,14 +53,15 @@ int main()
     {
         int src, dst;
         cin >> src >> dst;
-        dijkstra(src, N);
-        if (dis[dst] == INT_MAX)
+        src--;
+        dst--;
+        if (adj_matrix[src][dst] == INF)
         {
             cout << -1 << endl;
         }
         else
         {
-            cout << dis[dst] << endl;
+            cout << adj_matrix[src][dst] << endl;
         }
     }
     return 0;
