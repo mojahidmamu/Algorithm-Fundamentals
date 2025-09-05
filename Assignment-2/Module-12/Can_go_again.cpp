@@ -35,22 +35,22 @@ int main()
 
     for (int i = 1; i <= N - 1; i++)
     {
-        for (auto ed : edge_list)
+        for (auto &ed : edge_list)
         {
             int a, b, c;
             a = ed.a;
             b = ed.b;
             c = ed.c;
-            if (dis[a] != INT_MAX && dis[a] + c < dis[b])
+            if (dis[a] != INF && dis[a] + c < dis[b])
             {
                 dis[b] = dis[a] + c;
             }
         }
     }
 
-    for (auto ed : edge_list)
+    for (auto &ed : edge_list)
     {
-        if (dis[ed.a] != INT_MAX && dis[ed.a] + ed.c < dis[ed.b])
+        if (dis[ed.a] != INF && dis[ed.a] + ed.c < dis[ed.b])
         {
             cout << "Negative Cycle Detected" << endl;
             return 0;
@@ -63,7 +63,7 @@ int main()
     {
         int dst;
         cin >> dst;
-        if (dis[dst] == INT_MAX)
+        if (dis[dst] == INF)
         {
             cout << "Not Possible" << endl;
         }
@@ -75,3 +75,4 @@ int main()
 
     return 0;
 }
+// Accepted: 21.76
