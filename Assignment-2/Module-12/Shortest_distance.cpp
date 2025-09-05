@@ -6,15 +6,27 @@ int dis[1005];
 
 void dijkstra(int source, int N)
 {
-    queue<pair<int, int>> q;
-    q.push({source, 0});
+    for (int i = 1; i <= N; i++)
+    {
+        dis[i] = INT_MAX;
+    }
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
+
     dis[source] = 0;
+    q.push({0, source});
+
     while (!q.empty())
     {
-        auto par = q.front(); // auto for access one pair<int, int>
+        auto par = q.top(); // auto for access one pair<int, int>
         q.pop();
-        int par_node = par.first;
-        int par_dis = par.second;
+
+        int par_dis = par.first;
+        int par_node = par.second;
+
+        if (par_dis > dis[par_node])
+        {
+            continue; 
+        }
 
         for (auto child : adj_list[par_node])
         {
@@ -24,7 +36,7 @@ void dijkstra(int source, int N)
             if (par_dis + child_dis < dis[child_node])
             {
                 dis[child_node] = par_dis + child_dis;
-                q.push({child_node, dis[child_node]});
+                q.push({dis[child_node], child_node});
             }
         }
     }
@@ -39,11 +51,6 @@ int main()
         int a, b, c;
         cin >> a >> b >> c;
         adj_list[a].push_back({b, c});
-    }
-
-    for (int i = 1; i <= N; i++)
-    {
-        dis[i] = INT_MAX;
     }
 
     int Query;
