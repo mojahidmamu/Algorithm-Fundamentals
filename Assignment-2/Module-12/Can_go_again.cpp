@@ -12,10 +12,9 @@ public:
         this->c = c;
     }
 };
-// const int INF = 1e9;
+const int INF = 1e9;
 
-int dis[1005];
-
+ 
 int main()
 {
     int N, E;
@@ -30,11 +29,8 @@ int main()
     int source;
     cin >> source;
 
-    for (int i = 0; i < N; i++)
-    {
-        dis[i] = INT_MAX;
-    }
-    // vector<int> dis(N + 1, INF);
+     
+    vector<int> dis(N + 1, INF);
     dis[source] = 0;
 
     for (int i = 1; i <= N - 1; i++)
