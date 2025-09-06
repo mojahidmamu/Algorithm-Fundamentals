@@ -24,6 +24,13 @@ int main()
             int h = 
             int w = right - left;
             int area = h * w;
+
+            if (area > maxArea)
+            {
+                maxArea = area;
+                bestPair = {left, right};
+            }
+            
         }
         
     }
