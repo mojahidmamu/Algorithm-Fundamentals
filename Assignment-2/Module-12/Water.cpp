@@ -21,7 +21,7 @@ int main()
 
         while (left < right)
         {
-            int h = 
+            int h = min(arr[left], arr[right]);
             int w = right - left;
             int area = h * w;
 
@@ -29,6 +29,15 @@ int main()
             {
                 maxArea = area;
                 bestPair = {left, right};
+            }
+
+            if (arr[left] < arr[right])
+            {
+                left++;
+            }
+            else
+            {
+                right--;
             }
         }
         cout << bestPair.first << " " << bestPair.second << endl;
