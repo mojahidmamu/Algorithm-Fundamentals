@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-pair<int, int> maxWaterContainer(vector<int> &arr)
+pair<int, int> maxWaterContainer(vector<int> &arr, int N)
 {
     int left = 0;
-    int right = arr.size() - 1;
+    int right = N - 1;
     int maxHeight = 0;
     pair<int, int> bestPair = {0, 0};
 
@@ -43,8 +43,9 @@ int main()
             cin >> arr[i];
         }
 
-        auto ans = maxWaterContainer(arr);
+        auto ans = maxWaterContainer(arr, N);
         cout << ans.first << " " << ans.second << endl;
     }
     return 0;
 }
+// Accepted; 22.5
