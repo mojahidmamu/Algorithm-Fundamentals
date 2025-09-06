@@ -15,7 +15,7 @@ int main()
         }
 
         int left = 0;
-        int right = arr.size() - 1;
+        int right =N - 1;
         int maxArea = 0;
         pair<int, int> bestPair = {0, 0}; // best-pair;
 
