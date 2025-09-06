@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int INF = 1e9;
+const long long INF = 1e9;
 
 int main()
 {
     int N, E;
     cin >> N >> E;
-    vector<vector<int>> adj_matrix(N, vector<int>(N, INF));
+    vector<vector<int>> adj_matrix(N, vector<long long>(N, INF));
 
     for (int i = 0; i < N; i++)
     {
@@ -44,6 +44,14 @@ int main()
                     adj_matrix[i][j] = min(adj_matrix[i][j], adj_matrix[i][k] + adj_matrix[k][j]);
                 }
             }
+        }
+    }
+
+    for (int i = 0; i < N; i++)
+    {
+        if (adj_matrix[i][i] < 0)
+        {
+            break;
         }
     }
 
