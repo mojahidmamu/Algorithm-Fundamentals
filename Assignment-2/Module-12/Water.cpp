@@ -30,9 +30,8 @@ int main()
                 maxArea = area;
                 bestPair = {left, right};
             }
-            
         }
-        
+        cout << bestPair.first << " " << bestPair.second << endl;
     }
 
     return 0;
