@@ -48,7 +48,7 @@ int main()
         int LeaderA = DSU_find(a);
         int LeaderB = DSU_find(b);
 
-        if (LeaderA == LeaderA)
+        if (LeaderA == LeaderB)
         {
             cycle_edges++;
         }
@@ -61,3 +61,4 @@ int main()
     cout << cycle_edges << endl;
     return 0;
 }
+// Accepted: 
