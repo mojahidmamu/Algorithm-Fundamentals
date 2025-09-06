@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const long long INF = 1e9;
+const long long INF = 1e18;
 
 int main()
 {
     int N, E;
     cin >> N >> E;
-    vector<vector<int>> adj_matrix(N, vector<long long>(N, INF));
+    vector<vector<long long>> adj_matrix(N, vector<long long>(N, INF));
 
     for (int i = 0; i < N; i++)
     {
@@ -26,7 +26,8 @@ int main()
 
     while (E--)
     {
-        int a, b, c;
+        int a, b;
+        long long c;
         cin >> a >> b >> c;
         a--;
         b--;
@@ -47,14 +48,6 @@ int main()
         }
     }
 
-    for (int i = 0; i < N; i++)
-    {
-        if (adj_matrix[i][i] < 0)
-        {
-            break;
-        }
-    }
-
     int Query;
     cin >> Query;
     for (int i = 0; i < Query; i++)
@@ -63,13 +56,14 @@ int main()
         cin >> src >> dst;
         src--;
         dst--;
-        if (adj_matrix[src][dst] == INF)
+        long long min_cost = adj_matrix[src][dst];
+        if (min_cost == INF)
         {
             cout << -1 << endl;
         }
         else
         {
-            cout << adj_matrix[src][dst] << endl;
+            cout << min_cost << endl;
         }
     }
     return 0;
