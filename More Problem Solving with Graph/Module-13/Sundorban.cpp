@@ -26,11 +26,15 @@ vector<vector<int>> bfs(vector<string> &grid, int sx, int sy)
 
     while (!q.empty())
     {
-        auto [x, y] = q.front();
+        auto par = q.front();
+        int x = par.first;
+        int y = par.second;
         q.pop();
 
-        for (auto [dx, dy] : directions)
+        for (auto child : directions)
         {
+            int dx = child.first;
+            int dy = child.second;
             int nx = x + dx;
             int ny = y + dy;
 
@@ -48,16 +52,32 @@ vector<vector<int>> bfs(vector<string> &grid, int sx, int sy)
 
 int main()
 {
-    int N;
-    cin >> N;
-    char arr[N][N];
-    for (int i = 0; i < N; i++)
+    while (cin >> n)
     {
-        for (int j = 0; j < N; j++)
-        {
-            cin >> arr[i][j];
-        }
-    }
+        vector<string> grid(n);
+        int startX, startY, endX, endY;
 
+        for (int i = 0; i < n; i++)
+        {
+            cin >> grid[i];
+            for (int j = 0; j < n; j++)
+            {
+                if (grid[i][j] == 'S')
+                {
+                    startX = i;
+                    startY = j;
+                }
+                if (grid[i][j] == 'E')
+                {
+                    endX = i;
+                    endY = j;
+                }
+            }
+        }
+
+        vector<vector<int>> dist = bfs(grid, startX, startY);
+
+        cout << dist[endX][endY] << endl;
+    }
     return 0;
 }
