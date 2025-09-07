@@ -24,7 +24,7 @@ int DSU_union(int node1, int node2)
     int leaderB = DSU_find(node2);
 
     if (leaderA == leaderB)
-        return false; // already same component
+        return false;  
 
     component--;
 
