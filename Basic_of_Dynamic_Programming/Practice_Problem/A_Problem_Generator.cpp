@@ -6,7 +6,14 @@ int main()
     cin >> T;
     while (T--)
     {
-        int
+        int n, m ;
+        cin >> n >> m;
+        string a;
+        for (int i = 0; i < n; i++)
+        {
+            cin >> a[i];
+        }
+        
     }
 
     return 0;
