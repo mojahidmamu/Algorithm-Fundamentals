@@ -22,7 +22,7 @@ int main()
         {
             if (freq[i] < m)
             {
-                count++;
+                count += m - freq[i];
             }
         }
 
