@@ -19,7 +19,7 @@ int fibonacci(int n)
     }
     else
     {
-        return Dp[n] =  fibonacci(n - 1) + fibonacci(n - 2);
+        return Dp[n] = fibonacci(n - 1) + fibonacci(n - 2);
     }
 }
 
