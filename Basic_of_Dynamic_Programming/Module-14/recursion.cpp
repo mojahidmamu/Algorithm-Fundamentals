@@ -7,8 +7,8 @@ void rec(int n)
     {
         return;
     }
-    cout << n << endl;
     rec(n + 1);
+    cout << n << " ";
 }
 
 int main()
