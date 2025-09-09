@@ -20,6 +20,5 @@ int fibonacci(int n)
 int main()
 {
     cout << fibonacci(10) << endl;
-    cout << fibonacci(6) << endl;
     return 0;
 }
