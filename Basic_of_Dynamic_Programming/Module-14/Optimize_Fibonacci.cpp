@@ -13,12 +13,14 @@ int fibonacci(int n)
     }
     else
     {
-        return fibonacci(n - 1) + fibonacci(n - 2); // same code reuse:
+        return fibonacci(n - 1) + fibonacci(n - 2);
     }
-} 
+}
 
 int main()
 {
-    cout << fibonacci(10) << endl;
+    int n;
+    cin >> n;
+    cout << fibonacci(n) ;
     return 0;
 }
