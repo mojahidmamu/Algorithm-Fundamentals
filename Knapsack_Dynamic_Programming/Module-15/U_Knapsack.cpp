@@ -7,7 +7,11 @@ int dp[25][105];
 
 int Knapsack(int i, int w)
 {
-    if (N == 0 || w == 0)
+    if (i == N)
+    {
+        return 0;
+    }
+    if (w == 0)
     {
         return 0;
     }
@@ -24,7 +28,7 @@ int Knapsack(int i, int w)
     {
         ans = max(ans, value[i] + Knapsack(i + 1, w - weight[i]));
     }
-    
+
     return dp[i][w] = ans;
 }
 
