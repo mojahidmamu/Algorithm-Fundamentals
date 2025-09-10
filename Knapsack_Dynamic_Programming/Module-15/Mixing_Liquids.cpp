@@ -10,7 +10,7 @@ int main()
     {
         a--;
         b -= 2;
-        if (a << 0 || b < 0)
+        if (a < 0 || b < 0)
         {
             break;
         }
