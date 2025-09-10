@@ -8,7 +8,7 @@ int dp[25][105];
 int main()
 {
     cin >> N >> W;
-    while (N--)
+    for(int i = 0; i < N; i++)
     {
         cin >> weight[i] >> value[i];
     }
