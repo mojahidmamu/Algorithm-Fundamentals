@@ -5,7 +5,7 @@ int arr[10][10];
 
 int maxSum(int i, int j)
 {
-    if (i == N - 1 && j == M - 1)
+    if (i == N - 1 && j == M - 1) // base case 
     {
         return arr[i][j];
     }
