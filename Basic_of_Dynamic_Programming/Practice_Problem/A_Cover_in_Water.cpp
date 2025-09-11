@@ -12,10 +12,12 @@ int main()
         cin >> s;
 
         int consecutive = 0;
+        int empty = 0;
         for (char ch : s)
         {
             if (ch == '.')
             {
+                empty++;
                 consecutive++;
                 if (consecutive == 3)
                 {
@@ -27,9 +29,14 @@ int main()
                 consecutive = 0;
             }
         }
+
         if (consecutive == 3)
         {
             cout << 2 << endl;
+        }
+        else
+        {
+            cout << empty << endl;
         }
     }
     return 0;
