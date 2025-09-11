@@ -6,7 +6,10 @@ void recursion(int n)
     {
         return;
     }
-    cout << n << " ";
+    cout << n;
+    if (n > 1)
+        cout << " ";
+
     recursion(n - 1);
 }
 int main()
@@ -14,5 +17,6 @@ int main()
     int n;
     cin >> n;
     recursion(n);
+    cout << endl;
     return 0;
 }
