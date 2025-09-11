@@ -24,6 +24,7 @@ int main()
         int N;
         cin >> N;
         printDigit(N);
+        cout << endl;
     }
 
     return 0;
