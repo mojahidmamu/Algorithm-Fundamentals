@@ -17,7 +17,15 @@ int main()
     {
         int N;
         cin >> N;
-        recursion(N);
+        if (N == 0)
+        {
+            cout << 0 << endl;
+        }
+        else
+        {
+            recursion(N);
+            cout << endl;
+        }
     }
 
     return 0;
