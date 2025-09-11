@@ -17,15 +17,19 @@ int main()
             if (ch == '.')
             {
                 consecutive++;
+                if (consecutive == 3)
+                {
+                    break;
+                }
+            }
+            else
+            {
+                consecutive = 0;
             }
         }
         if (consecutive == 3)
         {
             cout << 2 << endl;
-        }
-        else
-        {
-            cout <<
         }
     }
     return 0;
