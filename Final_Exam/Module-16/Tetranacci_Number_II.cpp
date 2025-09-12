@@ -4,7 +4,7 @@ int main()
 {
     int n;
     cin >> n;
-    int fibo[1005];
+    long long int fibo[1005];
     fibo[0] = 0;
     fibo[1] = 1;
     fibo[2] = 1;
@@ -17,3 +17,4 @@ int main()
     cout << fibo[n] << endl;
     return 0;
 }
+// Accepted: 
