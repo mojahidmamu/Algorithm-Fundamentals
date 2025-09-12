@@ -8,10 +8,16 @@ int main()
     {
         int N, W;
         cin >> N >> W;
-        int weight_arr[W];
-        for (int i = 0; i < W; i++)
+        int weight_arr[N];
+        for (int i = 0; i < N; i++)
         {
             cin >> weight_arr[i];
+        }
+        
+        int value_arr[N];
+        for (int i = 0; i < N; i++)
+        {
+            cin >> value_arr[i];
         }
     }
 
