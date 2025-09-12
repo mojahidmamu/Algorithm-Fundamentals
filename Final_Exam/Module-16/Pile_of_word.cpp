@@ -13,6 +13,7 @@ bool checkEqual(string s1, string s2)
     {
         return true;
     }
+    return false;
 }
 
 int main()
