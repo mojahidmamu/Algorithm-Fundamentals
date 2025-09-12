@@ -2,8 +2,8 @@
 using namespace std;
 
 int N, W;
-int weight[25], value[25];
-int dp[25][105];
+int weight[1005], value[1005];
+int dp[1005][1005];
 
 int Knapsack(int i, int w)
 {
@@ -38,22 +38,22 @@ int main()
     cin >> T;
     while (T--)
     {
-        int N, W;
+      
         cin >> N >> W;
-        int weight_arr[N];
+        
         for (int i = 0; i < N; i++)
         {
-            cin >> weight_arr[i];
+            cin >> weight[i];
         }
 
-        int value_arr[N];
+       
         for (int i = 0; i < N; i++)
         {
-            cin >> value_arr[i];
+            cin >> value[i];
         }
 
         memset(dp, -1, sizeof(dp));
-        cout << Knapsack(0, W);
+        cout << Knapsack(0, W) << endl;
     }
 
     return 0;
