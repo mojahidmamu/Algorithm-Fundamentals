@@ -1,5 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+int  BFS(int src, int dst)
+{
+    
+}
+
 int main()
 {
     int N, E;
@@ -19,7 +25,7 @@ int main()
     {
         int src, dst;
         cin >> src >> dst;
-        
+        BFS(src, dst);
     }
     
     
