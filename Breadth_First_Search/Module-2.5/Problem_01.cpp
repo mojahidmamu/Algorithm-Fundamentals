@@ -5,7 +5,7 @@ vector<int> path[1005];
 bool vis[1005];
 int level[1005];
 
-int BFS(int src, int dst)
+int BFS(int src, int dst, int N)
 {
     queue<int> q;
     q.push(src);
@@ -22,7 +22,11 @@ int BFS(int src, int dst)
             {
                 q.push(child);
                 vis[child] = true;
-                return level[child] = level[parent] + 1;
+                level[child] = level[parent] + 1;
+                if (child == dst)
+                {
+                    return level[child];
+                }
             }
         }
     }
@@ -49,9 +53,8 @@ int main()
     {
         int src, dst;
         cin >> src >> dst;
-        BFS(src, dst);
-
-        cout << level << endl;
+        int ans = BFS(src, dst, N);
+        cout << ans << endl;
     }
 
     return 0;
