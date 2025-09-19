@@ -7,6 +7,17 @@ int level[1005];
 
 int BFS(int src, int dst, int N)
 {
+    if (src == dst)
+    {
+        return 0;
+    }
+
+    for (int i = 0; i < N; i++)
+    {
+        vis[i] = false;
+        level[i] = -1;
+    }
+
     queue<int> q;
     q.push(src);
     vis[src] = true;
@@ -30,6 +41,7 @@ int BFS(int src, int dst, int N)
             }
         }
     }
+    return -1;
 }
 
 int main()
