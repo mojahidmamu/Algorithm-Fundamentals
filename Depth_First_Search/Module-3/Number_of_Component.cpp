@@ -35,8 +35,7 @@ int main()
         if (vis[i] == false)
         {
             dfs(i);
-            count++;
-            cout << endl;
+            count++; 
         }
     }
     cout << count << endl; //print final size of Component: 
