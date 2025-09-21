@@ -14,102 +14,72 @@ public:
 };
 
 const int N = 1e5 + 5;
-
 int dis[N];
 
 int main()
-
 {
 
     int n, e;
-
     cin >> n >> e;
-
-    vector<Edge> EdgeList;
-
+    vector<Edge> edge_list;
     while (e--)
-
     {
-
-        int u, v, c;
-
-        cin >> u >> v >> c;
-
-        EdgeList.push_back(Edge(u, v, c));
+        int a, b, c;
+        cin >> a >> b >> c;
+        edge_list.push_back(Edge(a, b, c));
     }
 
     for (int i = 0; i < n; i++)
-
     {
-
         dis[i] = INT_MAX;
     }
 
     dis[0] = 0;
 
-    for (int i = 1; i <= n - 1; i++)
-
+    for (int i = 0; i < n; i++)
     {
-
-        for (Edge ed : EdgeList)
-
+        for (auto ed : edge_list)
         {
-
-            int u, v, c;
-
-            u = ed.u;
-
-            v = ed.v;
-
+            int a, b, c;
+            a = ed.a;
+            b = ed.b;
             c = ed.c;
-
-            if (dis[u] < INT_MAX && dis[u] + c < dis[v])
-
+            if (dis[a] != INT_MAX && dis[a] + c < dis[b])
             {
-
-                dis[v] = dis[u] + c;
+                dis[b] = dis[a] + c;
             }
         }
     }
 
     bool cycle = false;
-
-    for (Edge ed : EdgeList)
-
+    for (Edge ed : edge_list)
     {
-
-        int u, v, c;
-
-        u = ed.u;
-
-        v = ed.v;
-
+        int a, b, c;
+        a = ed.a;
+        b = ed.b;
         c = ed.c;
-
-        if (dis[u] < INT_MAX && dis[u] + c < dis[v])
-
+        if (dis[a] < INT_MAX && dis[a] + c < dis[b])
         {
-
             cycle = true;
-
             break;
         }
     }
 
     if (cycle)
-
     {
-
         cout << "Cycle found. No answer" << endl;
     }
-
     else
-
     {
-
         for (int i = 0; i < n; i++)
-
+        {
             cout << i << " -> " << dis[i] << endl;
+        }
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << i << " -> " << dis[i] << endl;
     }
 
     return 0;
