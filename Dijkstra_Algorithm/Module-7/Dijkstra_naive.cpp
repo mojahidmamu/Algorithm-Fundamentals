@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 vector<pair<int, int>> adj_list[1005]; // array of vector with every index have a pair(int, int)
 int dis[1005];
 
@@ -50,7 +51,7 @@ int main()
     for (int i = 0; i < N; i++)
     {
         // cout << i << " -> " << dis[i] << endl;
-         cout << dis[i] << endl;
+         cout << i << " -> " <<  dis[i] << endl;
     }
    
     return 0;
