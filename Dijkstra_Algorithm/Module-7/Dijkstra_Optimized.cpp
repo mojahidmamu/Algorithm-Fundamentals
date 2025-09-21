@@ -6,6 +6,7 @@ int dis[1005];
 
 void dijkstra(int source)
 {
+    // Min-Heap
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
 
     dis[source] = 0;
@@ -19,7 +20,6 @@ void dijkstra(int source)
         int par_dis = par.first;
         int par_node = par.second;
 
-
         for (auto child : adj_list[par_node])
         {
             int child_node = child.first;
@@ -32,7 +32,7 @@ void dijkstra(int source)
             }
         }
     }
-}
+};
 
 int main()
 {
