@@ -9,10 +9,12 @@ void dijkstra(int source)
     queue<pair<int, int>> q;
     q.push({source, 0});
     dis[source] = 0;
+
     while (!q.empty())
     {
         auto par = q.front(); // auto for access one pair<int, int>
         q.pop();
+        
         int par_node = par.first;
         int par_dis = par.second;
 

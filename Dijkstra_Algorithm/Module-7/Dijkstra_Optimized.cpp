@@ -6,7 +6,7 @@ int dis[1005];
 
 void dijkstra(int source)
 {
-    priority_queue < pair<int, int>, vector < pair<int, int>>, greater<pair<int, int>>> q;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
 
     dis[source] = 0;
     q.push({0, source});
@@ -19,10 +19,6 @@ void dijkstra(int source)
         int par_dis = par.first;
         int par_node = par.second;
 
-        if (par_dis > dis[par_node])
-        {
-            continue; 
-        }
 
         for (auto child : adj_list[par_node])
         {
