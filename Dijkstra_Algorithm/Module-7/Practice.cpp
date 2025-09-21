@@ -37,7 +37,7 @@ int main()
     while (E--)
     {
         int a, b, c;
-        cin >> a >> c;
+        cin >> a >> b >> c;
         adj_list[a].push_back({b, c});
         adj_list[b].push_back({c, c});
     }
