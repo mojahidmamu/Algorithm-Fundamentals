@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+int dis[1005];
 
 class Edge
 {
@@ -13,9 +14,7 @@ public:
     }
 };
 
-int dis[1005];
-
-main()
+int main()
 {
     int n, e;
     cin >> n >> e;
@@ -34,7 +33,7 @@ main()
 
     dis[0] = 0;
 
-    for (int i = 1; i <= n - 1; i++)
+    for (int i = 0; i < n; i++)
     {
         for (auto ed : edge_list)
         {
