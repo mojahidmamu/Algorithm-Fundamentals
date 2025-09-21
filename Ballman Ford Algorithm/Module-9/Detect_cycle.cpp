@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 class Edge
 {
 public:
@@ -36,7 +35,7 @@ int main()
 
     dis[0] = 0;
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n - 1; i++)
     {
         for (auto ed : edge_list)
         {
@@ -44,43 +43,42 @@ int main()
             a = ed.a;
             b = ed.b;
             c = ed.c;
-            if (dis[a] != INT_MAX && dis[a] + c < dis[b])
+            if (dis[ed.a] != INT_MAX && dis[ed.a] + ed.c < dis[ed.b])
             {
-                dis[b] = dis[a] + c;
+                {
+                    dis[b] = dis[a] + c;
+                }
             }
         }
-    }
 
-    bool cycle = false;
-    for (Edge ed : edge_list)
-    {
-        int a, b, c;
-        a = ed.a;
-        b = ed.b;
-        c = ed.c;
-        if (dis[a] < INT_MAX && dis[a] + c < dis[b])
+        // Check for negative cycle
+        bool cycle = false;
+        for (Edge ed : edge_list)
         {
-            cycle = true;
-            break;
-        }
-    }
+            int a, b, c;
+            a = ed.a;
+            b = ed.b;
+            c = ed.c;
 
-    if (cycle)
-    {
-        cout << "Cycle found. No answer" << endl;
-    }
-    else
-    {
-        for (int i = 0; i < n; i++)
+            if (dis[ed.a] != INT_MAX && dis[ed.a] + ed.c < dis[ed.b])
+            {
+                cycle = true;
+                break;
+            }
+        }
+
+        if (cycle)
         {
-            cout << i << " -> " << dis[i] << endl;
+            cout << "Cycle found. No answer" << endl;
         }
-    }
+        else
+        {
+            for (int i = 0; i < n; i++)
+            {
+                cout << i << " -> " << dis[i] << endl;
+            }
+        }
 
-    for (int i = 0; i < n; i++)
-    {
-        cout << i << " -> " << dis[i] << endl;
+               return 0;
     }
-
-    return 0;
 }
