@@ -46,7 +46,9 @@ int main()
     {
         dis[i] = INT_MAX;
     }
-    dijkstra(0);
+    int source;
+    cin >> source;
+    dijkstra(source);
 
     for (int i = 0; i < N; i++)
     {
