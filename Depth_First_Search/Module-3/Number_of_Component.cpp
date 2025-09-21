@@ -29,16 +29,16 @@ int main()
     }
 
     int count = 0;  // track the size (initialy 0)
-    memset(vis, false, sizeof(vis));
-    for (int i = 0; i < n; i++)
-    {
-        if (vis[i] == false)
+        memset(vis, false, sizeof(vis));
+        for (int i = 0; i < n; i++)
         {
-            dfs(i);
-            count++; 
+            if (vis[i] == false)
+            {
+                dfs(i);
+                count++; 
+            }
         }
-    }
-    cout << count << endl; //print final size of Component: 
+        cout << count << endl; //print final size of Component: 
 
     return 0;
 }
