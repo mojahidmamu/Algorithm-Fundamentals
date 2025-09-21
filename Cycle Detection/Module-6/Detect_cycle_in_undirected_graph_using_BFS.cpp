@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+ 
 bool vis[1005];
 vector<int> adj_list[1005];
 int parent[1005];
