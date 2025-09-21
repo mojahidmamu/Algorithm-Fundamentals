@@ -16,7 +16,7 @@ int calculate_time(string s)
         }
     }
     return time;
-};
+};  
 
 int main()
 {
