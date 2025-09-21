@@ -75,7 +75,7 @@ int main()
     if (isCycle)
     {
         cout << "YES" << endl;
-    }
+    }k
     else
     {
         cout << "NO" << endl;
