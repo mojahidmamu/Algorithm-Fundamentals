@@ -45,9 +45,7 @@ int main()
             c = ed.c;
             if (dis[ed.a] != INT_MAX && dis[ed.a] + ed.c < dis[ed.b])
             {
-                {
-                    dis[b] = dis[a] + c;
-                }
+                dis[b] = dis[a] + c;
             }
         }
 
@@ -79,6 +77,6 @@ int main()
             }
         }
 
-               return 0;
+        return 0;
     }
 }
