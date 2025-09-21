@@ -51,8 +51,8 @@ int main()
     for (int i = 0; i < N; i++)
     {
         // cout << i << " -> " << dis[i] << endl;
-         cout << i << " -> " <<  dis[i] << endl;
+        cout << i << " -> " << dis[i] << endl;
     }
-   
+
     return 0;
 }
