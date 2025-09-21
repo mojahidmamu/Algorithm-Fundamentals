@@ -18,7 +18,7 @@ int main()
         int mn = arr[0];
         int mx = arr[N - 1];
 
-        if ((mn % 2 == 0 && mx % 2 == 0) || (mn % 2 == 1 && mx % 2 == 1))
+        if ((mn + mx) % 2 == 0)
         {
             cout << "0" << endl;
         }

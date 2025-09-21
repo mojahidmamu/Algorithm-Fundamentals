@@ -11,25 +11,18 @@ int main()
         string s;
         cin >> s;
 
-        int count = 0;
-        for (char ch : s)
-        {
-            if (ch == '1')
-            {
-                count++;
-            }
-        }
+        int one = count(s.begin(), s.end(), '1');
 
         int ans = 0;
         for (char ch : s)
         {
             if (ch == '1')
             {
-                ans += count - 1;
+                ans += one - 1;
             }
             else
             {
-                ans += count + 1;
+                ans += one + 1;
             }
         }
         cout << ans << endl;
