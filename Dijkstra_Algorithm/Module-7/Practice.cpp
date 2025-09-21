@@ -42,7 +42,11 @@ int main()
         adj_list[b].push_back({c, c});
     }
 
-    
-    
+    for (int i = 0; i < N; i++)
+    {
+        dis[i] = INT_MAX;
+    }
+    dijkstra(0);
+
     return 0;
 }
