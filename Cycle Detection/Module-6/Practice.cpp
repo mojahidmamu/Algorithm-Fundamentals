@@ -1,28 +1,53 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// void dfs(int source)
+// {
+//     vis[source] = true;
+//     for (int child : adj_list[source])
+//     {
+//         if (vis[child] == true && parent[source] != child)
+//         {
+//             isCycle = true;
+//         }
+//         if (!vis[child])
+//         {
+//             parent[child] = source;
+//             dfs(child);
+//         }
+//     }
+// }
+
 bool vis[1005];
 vector<int> adj_list[1005];
 int parent[1005];
 bool isCycle;
 
-void dfs(int source)
+void bfs(int source)
 {
+    queue<int> q;
+    q.push(source);
     vis[source] = true;
-    for (int child : adj_list[source])
+    while (!q.empty())
     {
-        if (vis[child] == true && parent[source] != child)
+        int par = q.front();
+        q.pop();
+        // cout << par << " ";
+        for (int child : adj_list[par])
         {
-            isCycle = true;
-        }
-        if (!vis[child])
-        {
-            parent[child] = source;
-            dfs(child);
+            if (vis[child] == true && parent[par] != child)
+            {
+                isCycle = true;
+            }
+            if (!vis[child])
+            {
+                q.push(child);
+                vis[child] = true;
+                parent[child] = par;
+            }
         }
     }
 }
-
 int main()
 {
     int N, E;
@@ -36,14 +61,14 @@ int main()
     }
 
     memset(vis, false, sizeof(vis));
-    memset(pathVis false, sizeof(pathVis));
+    memset(parent, -1, sizeof(parent));
 
     isCycle = false;
     for (int i = 0; i < N; i++)
     {
         if (!vis[i])
         {
-            dfs(i);
+            bfs(i);
         }
     }
 
