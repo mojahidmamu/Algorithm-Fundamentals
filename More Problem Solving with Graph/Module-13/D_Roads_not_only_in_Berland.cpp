@@ -53,5 +53,46 @@ int main()
     int n;
     cin >> n;
     dsu_initialize(n);
+
+    vector<pair<int, int>> bad;
+    vector<pair<int, int>> create;
+
+    while (n--)
+    {
+        int a, b;
+        cin >> a >> b;
+
+        int LeaderA = DSU_find(a);
+        int LeaderB = DSU_find(b);
+        if (LeaderA == LeaderB)
+        {
+            bad.push_back({a, b});
+        }
+        else
+        {
+            DSU_union(a, b);
+        }
+    }
+
+    for (int i = 2; i <= n; i++)
+    {
+        int leaderA = DSU_find(1);
+        int leaderB = DSU_find(i);
+
+        if (leaderA != leaderB)
+        {
+            create.push_back({1, i});
+            DSU_union(1, i);
+        }
+    }
+
+    // output
+    cout << bad.size() << endl;
+    for (int i = 0; i < bad.size(); i++)
+    {
+        cout << bad[i].first << " " << bad[i].second << " "
+             << create[i].first << " " << create[i].second << endl;
+    }
+
     return 0;
 }
