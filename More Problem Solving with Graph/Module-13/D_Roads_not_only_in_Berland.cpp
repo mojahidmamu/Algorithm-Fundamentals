@@ -2,9 +2,17 @@
 using namespace std;
 
 const int N = 1e5 + 5;
-int parent[N];
-int group_size[N];
+int par[N];
+int groupSize[N];
 
+void dsu_initialize(int n)
+{
+    for (int i = 0; i <= n; i++)
+    {
+        par[i] = -1;
+        groupSize[i] = 1;
+    }
+}
 
 // DSU-(find): Time Complexity= O(logN)
 int DSU_find(int node)
