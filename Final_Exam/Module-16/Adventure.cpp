@@ -2,20 +2,15 @@
 using namespace std;
 
 int N, W;
-int weight[1005], value[1005];
-int dp[1005][1005];
+int weight[25], value[25];
+int dp[25][105];
 
 int Knapsack(int i, int w)
 {
-    if (i == N)
+    if (i == N || w == 0)
     {
         return 0;
     }
-    if (w == 0)
-    {
-        return 0;
-    }
-
     if (dp[i][w] != -1)
     {
         return dp[i][w];
