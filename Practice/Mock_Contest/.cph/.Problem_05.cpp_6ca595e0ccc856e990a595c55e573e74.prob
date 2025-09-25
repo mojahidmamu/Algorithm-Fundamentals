@@ -1,0 +1,1 @@
+{"name":"Local: Problem_05","url":"d:\\PHITRON\\Algorithm Fundamentals\\Mock-Contest\\Problem_05.cpp","tests":[{"id":1758729967235,"input":"4\n1\na\n3\nabc\n4\nabcd\n5\nabddd","output":"1\n2\n3\n3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\PHITRON\\Algorithm Fundamentals\\Mock-Contest\\Problem_05.cpp","group":"local","local":true}
