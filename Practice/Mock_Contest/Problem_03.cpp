@@ -2,15 +2,15 @@
 using namespace std;
 int main()
 {
-    long long int N;
-    cin >> N;
-    int T;
-    cin >> T;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    // --- your code here ---
+    long long int N, T;
+    cin >> N >> T;
     while (T--)
     {
         int L, R;
         cin >> L >> R;
-        
     }
 
     return 0;
