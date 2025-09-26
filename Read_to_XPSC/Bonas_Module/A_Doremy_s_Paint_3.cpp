@@ -16,8 +16,19 @@ int main()
         {
             cin >> arr[i];
         }
+        bool isGood = false;
+
+
         
-        
+
+        if (isGood == true)
+        {
+            cout << "Yes" << endl;
+        }
+        else
+        {
+            cout << "No" << endl;
+        }
     }
 
     return 0;
