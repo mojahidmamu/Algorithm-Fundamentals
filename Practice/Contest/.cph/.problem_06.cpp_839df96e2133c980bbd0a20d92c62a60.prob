@@ -1,0 +1,1 @@
+{"name":"Local: problem_06","url":"d:\\PHITRON\\Algorithm Fundamentals\\Practice\\Contest\\problem_06.cpp","tests":[{"id":1758905651455,"input":"8 3\n0 1 1 2 1 0 0 2\n5 6\n7 8\n4 4","output":"2\n1\n0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\PHITRON\\Algorithm Fundamentals\\Practice\\Contest\\problem_06.cpp","group":"local","local":true}
