@@ -18,9 +18,12 @@ bool frog2(int n)
     }
     return true;
 }
-
 int main()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    // --- your code here ---
+
     int T;
     cin >> T;
     while (T--)
