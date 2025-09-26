@@ -18,7 +18,12 @@ int main()
         {
             ans += v[i];
             i++;
+            if (i == 5)
+            {
+                i = 0;
+            }
         }
+        sort(ans.begin(), ans.end());
         cout << ans << endl;
     }
 
