@@ -27,14 +27,7 @@ int main()
 
     int result = foundBook(n);
     cout << result << endl;
-    // for (int i = 0; i < n; i++)
-    // {
-    //     if (arr[i] == target)
-    //     {
-    //         cout << i << endl;
-    //         break;
-    //     }
-    // }
+    
 
     return 0;
 }
