@@ -31,15 +31,18 @@ int main()
         int n;
         cin >> n;
 
-        if (frog1(n) && frog2(n))
+        bool leapy = frog1(n);
+        bool jumster = frog2(n);
+
+        if (leapy && jumster)
         {
             cout << "Both" << endl;
         }
-        else if (frog1(n))
+        else if (leapy)
         {
             cout << "Leapy" << endl;
         }
-        else if (frog2(n))
+        else if (jumster)
         {
             cout << "Jumpster" << endl;
         }
