@@ -1,6 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+bool frog1(int n)
+{
+}
+
+bool frog2(int n)
+{
+}
+
 int main()
 {
     int T;
@@ -9,40 +17,16 @@ int main()
     {
         int n;
         cin >> n;
-        vector<bool> leapy(n + 1, false);
-        vector<bool> jumpster(n + 1, false);
 
-        // Base case
-        leapy[0] = true;
-        jumpster[0] = true;
-
-        // DP for Leapy
-        for (int i = 1; i <= n; i++)
-        {
-            if (i >= 3)
-                leapy[i] || leapy[i - 3];
-            if (i >= 4)
-                leapy[i] || leapy[i - 4];
-        }
-
-        // DP for Jumpster
-        for (int i = 1; i <= n; i++)
-        {
-            if (i >= 3)
-                jumpster[i] || jumpster[i - 3];
-            if (i >= 5)
-                jumpster[i] || jumpster[i - 5];
-        }
-
-        if (leapy[n] && jumpster[n])
+        if (frog1(n) && frog2(n))
         {
             cout << "Both" << endl;
         }
-        else if (leapy[n])
+        else if (frog1(n))
         {
-            cout << "Lea" << endl;
+            cout << "Leapy" << endl;
         }
-        else if (jumpster[n])
+        else if (frog2(n))
         {
             cout << "Jumpster" << endl;
         }
@@ -54,4 +38,3 @@ int main()
 
     return 0;
 }
-
