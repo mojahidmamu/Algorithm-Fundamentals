@@ -69,43 +69,6 @@ int main()
     vector<long long> strength(N + 1, 0);
     vector<char> vis(N + 1, 0);
 
-    for (int i = 1; i <= N; ++i)
-    {
-        if (indeg[i] == 0 && !vis[i])
-        {
-            // BFS from root i
-            queue<pair<int, int>> q; // (node, depth)
-            q.push({i, 0});
-            vis[i] = 1;
-
-            while (!q.empty())
-            {
-                auto [u, d] = q.front();
-                q.pop();
-
-                if (d == 0)
-                    strength[u] = 0;
-                else if (d < 62)
-                    strength[u] = (1LL << d); // safe shift
-                else
-                    strength[u] = (1LL << 62); // clamp large depth to avoid UB
-
-                for (int v : adj[u])
-                {
-                    if (cuts.count({u, v}))
-                        continue; // edge removed
-                    if (vis[v])
-                        continue;
-                    vis[v] = 1;
-                    q.push({v, d + 1});
-                }
-            }
-        }
-    }
-
-    for (int i = 1; i <= N; ++i)
-    {
-        cout << strength[i] << (i == N ? '\n' : ' ');
-    }
+    
     return 0;
 }
