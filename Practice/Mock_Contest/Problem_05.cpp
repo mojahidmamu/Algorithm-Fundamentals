@@ -6,20 +6,19 @@ int main()
     cin >> T;
     while (T--)
     {
-        int N;
-        cin >> N;
-        string S;
-        cin >> S;
-
-        vector<int> freq(26, 0);
-        for (char c : S)
+        int n;
+        cin >> n;
+        int ans = 0;
+        string s;
+        cin >> s;
+        while (n)
         {
-            freq[c - 'a']++;
+            n /= 2;
+            ans++;
         }
-
-        int ans = *min_element(freq.begin(), freq.end());
-        cout << ans << endl;
+        cout << ans ;
     }
 
     return 0;
 }
+
