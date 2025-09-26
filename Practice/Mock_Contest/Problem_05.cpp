@@ -16,7 +16,7 @@ int main()
             n /= 2;
             ans++;
         }
-        cout << ans ;
+        cout << ans << endl ;
     }
 
     return 0;
