@@ -11,15 +11,20 @@ int main()
     {
         int N;
         cin >> N;
-        int arr[N];
+        vector<int> arr(N);
         for (int i = 0; i < N; i++)
         {
             cin >> arr[i];
         }
+
         bool isGood = false;
+        unordered_map<int, int> freq;
+        for(int x : arr)
+        {
+            freq[x]++;
+        }
 
 
-        
 
         if (isGood == true)
         {
