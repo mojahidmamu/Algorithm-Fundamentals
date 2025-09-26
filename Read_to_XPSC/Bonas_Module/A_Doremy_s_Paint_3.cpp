@@ -11,31 +11,45 @@ int main()
     {
         int N;
         cin >> N;
+        map<int, int> mp;
         vector<int> arr(N);
         for (int i = 0; i < N; i++)
         {
             cin >> arr[i];
+            mp[arr[i]];
         }
 
         bool isGood = false;
-        unordered_map<int, int> freq;
         for (int x : arr)
         {
-            freq[x]++;
+            mp[x]++;
         }
 
-        if (freq.size() == 1)
+        if (mp.size() == 1)
         {
             isGood = true;
         }
-        else if (freq.size() == 2)
+        else if (mp.size() > 2)
         {
-            /* code */
+            isGood = false;
+        }
+        else if (mp.size() == 2)
+        {
+            vector<int> v;
+            for (auto p : mp)
+            {
+                v.push_back(p.second);
+            }
+            if (abs(v[0] - v[1]) > 1)
+            {
+                isGood = false;
+            }
+            else
+            {
+                isGood = true;
+            }
         }
 
-
-
-        
         if (isGood == true)
         {
             cout << "Yes" << endl;
