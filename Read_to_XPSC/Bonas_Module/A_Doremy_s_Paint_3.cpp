@@ -19,13 +19,23 @@ int main()
 
         bool isGood = false;
         unordered_map<int, int> freq;
-        for(int x : arr)
+        for (int x : arr)
         {
             freq[x]++;
         }
 
+        if (freq.size() == 1)
+        {
+            isGood = true;
+        }
+        else if (freq.size() == 2)
+        {
+            /* code */
+        }
 
 
+
+        
         if (isGood == true)
         {
             cout << "Yes" << endl;
