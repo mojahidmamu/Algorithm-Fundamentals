@@ -10,6 +10,14 @@ int main() {
     {
         int N;
         cin >> N;
+        vector<char> v = {'a', 'e', 'i', 'o', 'u'};
+        string  ans = "";
+        int i = 0;
+        while (N--)
+        {
+            ans += v[i];
+            i++;
+        }
         
     }
     
