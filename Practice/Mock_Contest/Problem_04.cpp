@@ -3,10 +3,20 @@ using namespace std;
 
 bool frog1(int n)
 {
+    if (n < 3 || n == 5)
+    {
+        return false;
+    }
+    return true;
 }
 
 bool frog2(int n)
 {
+    if (n < 3 || n == 4 || n == 7)
+    {
+        return false;
+    }
+    return true;
 }
 
 int main()
