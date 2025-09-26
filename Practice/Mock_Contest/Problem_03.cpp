@@ -3,20 +3,14 @@ using namespace std;
 int main()
 {
     long long int N;
+    cin >> N;
     int T;
-    cin >> N ;
-    cin >>  T;
-    for (int i = 1; i <= T; i++)
+    cin >> T;
+    while (T--)
     {
         int L, R;
         cin >> L >> R;
-        int sum = 0;
-        for (int j = L; j <= R; j++)
-        {
-            sum += j;
-        }
-
-        cout << sum << endl;
+        
     }
 
     return 0;
